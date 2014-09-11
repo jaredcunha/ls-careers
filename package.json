@@ -1,0 +1,15 @@
+{
+  "name": "ls-careers",
+  "version": "1.0.0",
+  "description": "STARKERS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "node-bourbon": "^1.2.3"
+  }
+}

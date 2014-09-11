@@ -28,6 +28,11 @@
 <h2>Archive</h2>	
 <?php endif; ?>
 
+<?php
+$termname = $wp_query->queried_object->name;
+$termdesc = $wp_query->queried_object->description;
+?>
+
 <ol>
 <?php while ( have_posts() ) : the_post(); ?>
 	<li>
