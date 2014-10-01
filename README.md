@@ -15,3 +15,16 @@ Gulp is already installed locally. To run, simply go to your project directory a
 ```
 $ gulp
 ```
+
+### SVG Icons
+SVG Sprites are generated with gulp svg-sprites. To run first generate the sprites and corresponding CSS.
+```
+$ gulp sprites
+```
+
+Next, run the normal gulp task and save any CSS file.
+```
+$ gulp
+```
+
+I'll make this a little more streamlined

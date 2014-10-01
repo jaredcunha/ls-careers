@@ -1,2 +1,76 @@
 @import "bourbon/bourbon";
 @import "modules/all";
+
+/* 
+=============================================================================
+Main Footer Container
+========================================================================== */
+.site-footer {
+	margin-top: 50px;
+	padding: 4em 0;
+	background: $prince;
+	.column {
+		width: 50%;
+		float: left;
+		margin-bottom: 3em;
+		text-align: left;
+		padding-right: 20px;
+		@include respond-to(expansionB) {
+			width: $grid_3of12cols;
+			margin-right: $gutterWidth;
+			padding-right: 0;
+			&:first-child {
+				margin-right: 0;
+			}
+		}
+	}	
+}
+
+/* 
+=============================================================================
+Footer Links
+========================================================================== */
+.footer-links-heading {
+	@include rem_units(font-size, 1.6);
+	color: #fff;
+	font-weight: bold;
+	margin-bottom: 0;
+	@include respond-to(expansionB) {
+		margin-bottom: .3em
+	}
+}
+
+.footer-links {
+	@include rem_units(font-size, 1.4);
+	color: #fff;
+	a {
+		@include rgba_fallback('color', rgba(255,255,255, 0.75), $prince);
+		display: block;
+		padding: .25em 0;
+	}
+}
+
+/* 
+=============================================================================
+Site Summary
+========================================================================== */
+.site-summary {
+	@include rgba_fallback('border-color', rgba(255,255,255, 0.25), $prince);
+	border-width: 1px;
+	border-style: solid;
+	border-left: none;
+	border-right: none;
+	padding: 1em $grid_1of12cols+$gutterWidth;
+	margin: 2em 0;
+	color: #fff;
+	text-align: center;
+	a {
+		font-weight: bold;
+	}
+	p {
+		@include rem_units(font-size, 1.6);
+		@include respond-to(expansionA) {
+			@include rem_units(font-size, 1.8);
+		}
+	}
+}

@@ -1,0 +1,117 @@
+@import "bourbon/bourbon";
+@import "modules/all";
+
+.department-tiles {
+	@include clearfix;
+	text-align: center;
+	.tile {
+		width: 100%;
+		padding:5px;
+		overflow: hidden;
+		display: inline-block;
+		margin: 0;
+		@include respond-to(expansionA) {
+			width: 50%;
+		}@include respond-to(expansionB) {
+			width: 33.33333333%;
+		}
+		.tile-link {
+			@include transition(all .2s ease-in);
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			z-index:4;
+			@include respond-to(expansionA) {
+				display: block;
+			}
+		}
+		.overlay {
+			display: none;
+			@include respond-to(expansionA) {
+				@include transition(all .5s ease-in);
+				background: rgba(0,0,0,.5);
+				position: absolute;
+				top: 0;
+				left: 0; 
+				width: 100%;
+				height: 100%;
+				z-index: 5;
+				display: block;
+			}
+		}
+		.department-name {
+			@include rem_units(font-size, 1.3);
+			color: #fff;
+			text-align: center;
+			display: table-cell;
+			padding: .5em 10px;
+			text-transform: uppercase;
+			overflow: hidden;
+			background: $honeycomb;
+			vertical-align: middle;
+			@include respond-to(expansionA) {
+				@include rem_units(font-size, 1.6);
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				z-index: 7;
+				width: 100%;
+				display: block;
+				background: none;
+				padding: .5em 20px;
+			}
+			&:after {
+				content: "\0000a0»";
+				font-weight: bold;
+				@include respond-to(expansionA) {
+					content: none;
+				}
+			}
+			&:before {
+				@include transition(all .08s ease-in);
+				content: "";
+				width: 100%;
+				height: 100%;
+				bottom: -100%;
+				left: 0;
+				background: $honeycomb;
+				z-index: 6;
+				position: absolute;
+				display: block;
+			}
+			.inner {
+				position: relative;
+				z-index: 10;
+			}
+		}
+		img {
+			display: table-cell;
+			width: 100%;
+			height: auto;
+			@include respond-to(expansionA) {
+				@include transition(all 3s ease-out);
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@include respond-to(expansionA) {
+	.tile-link:hover {
+		.overlay {
+			background: rgba(0,0,0,0);
+		}
+		img {
+			@include transform(scale(1.1));
+		}
+		.department-name {
+			z-index: 30;
+		}
+		.department-name:before {
+			bottom: 0;
+		}
+	}
+}

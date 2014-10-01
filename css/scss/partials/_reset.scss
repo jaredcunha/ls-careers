@@ -70,24 +70,13 @@ button,
 input, 
 select, 
 textarea {
-  font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2",serif;
- color:#444444;
+  font-family: $sans;
+  color:#444444;
 }  
 
 body {
   margin: 0;
-}
-
-::-moz-selection {
-  background: #bf1e2e;
-  color: #fff;
-  text-shadow: none;
-}
-
-::selection {
-  background: #bf1e2e;
-  color: #fff;
-  text-shadow: none;
+  color: $medGrey;
 }
 
 /* ==========================================================================
@@ -117,21 +106,33 @@ h3,
 h4, 
 h5, 
 h6 {
-  font-family: "nimbus-sans-condensed-1","nimbus-sans-condensed-2",sans-serif; 
-  font-weight:600; 
-  letter-spacing:.07em;
+  font-family: $sans; 
+  font-weight:normal; 
   margin: 0;
 }
 
-h1 {
-  font-size: 2em;
-}
-
+h1,
 h2 {
-  font-size: 1.5em;
+  @include rem_units(font-size, 1.8);
+  color: $prince;
+  text-transform: lowercase;
+  font-weight: normal;
+  @include respond-to(expansionB) {
+    @include rem_units(font-size, 2.4);
+    padding: .5em 0;
+  }
 }
 
-h3 {font-size: 1.17em;
+
+h3 {
+  @include rem_units(font-size, 1.6);
+  color: $whale;
+  text-transform: lowercase;
+  font-weight: normal;
+  @include respond-to(expansionB) {
+    @include rem_units(font-size, 2);
+    padding: .5em 0;
+  }
 }
 
 h4 {
@@ -171,7 +172,10 @@ mark {
 
 p, 
 pre {
-  margin:  0;
+  @include rem_units(font-size, 1.6);
+  padding: .5em 0;
+  margin: 0;
+  line-height: 1.5;
 }
 
 code, 
@@ -240,6 +244,7 @@ dd {
 menu,
 ol,
 ul {
+  @include rem_units(font-size, 1.5);
   padding: 0;
 }
 

@@ -1,9 +1,16 @@
-<header>
-	<h1><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-	<?php bloginfo( 'description' ); ?>
-	<form method="get" action="<?php esc_url( home_url( '/' ) ); ?>" id="findfood">       
-   <?php custom_taxonomy_dropdown( 'department' ); ?>
-   <?php custom_taxonomy_dropdown( 'location' ); ?>
-   <button type="submit">submit</button>
-</form>
+<header id="site-header" class="hdr-main <?php if( is_front_page() ) : ?>hdr-main--extended<?php endif;?>" role="banner">
+	<div class="wrap">
+		<div class="top-bar">
+			<p class="logo-main"><a href="<?php echo home_url(); ?>"><img src="/wp-content/themes/ls-careers/dist/prod/images/svg/logo.svg" onerror="this.src=image.png" alt="<?php bloginfo( 'name' ); ?>"></a></p>
+			<nav class="nav-main">
+				<?php wp_nav_menu( array('menu' => 'main navigation', 'container' => 'none' )); ?>
+			</nav>	
+			</div>
+	</div>
+
+<?php if( ! is_front_page() ) : ?>
 </header>
+<?php endif;?>
+
+	
+		

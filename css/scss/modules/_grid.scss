@@ -2,9 +2,9 @@
    VARS
    ========================================================================== */
 /* Caculate the end grid details */
-$gutterWidthPx: 36;
-$columnWidthPx: 62;
-$gridWidthPx: 1140;
+$gutterWidthPx: 20;
+$columnWidthPx: 60;
+$gridWidthPx: 940;
 
 @function calc-cols($target) {
   @return 100% * (($target * $columnWidthPx) + (($target - 1) * $gutterWidthPx)) / $gridWidthPx;

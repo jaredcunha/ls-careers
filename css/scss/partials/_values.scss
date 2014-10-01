@@ -1,0 +1,56 @@
+@import "bourbon/bourbon";
+@import "modules/all";
+
+/* 
+=============================================================================
+Values List
+========================================================================== */
+.ls-vaules-list {
+	@include clearfix;
+	@include respond-to(expansionA) {
+		text-align: center;
+	}
+	li {
+		width: 100%;
+		display: inline-block;
+		position: relative;
+		padding: 0 0 18px $grid_2of12cols + $gutterWidth;
+		position: relative;
+		@include respond-to(expansionA) {
+			width: 50%;
+			min-height: 240px;
+			padding:18px;
+		}
+		@include respond-to(expansionB) {
+			width: 33.33333333%;
+		}
+		.icon {
+			position: absolute;
+			font-size: 4px;
+			left: 0;
+			top: 2em;
+			&:before {
+				display: block;
+				margin: 0 auto;
+			}
+			@include respond-to(expansionA__minor) {
+				font-size: 7.5px;
+			}
+			@include respond-to(expansionA) {
+				position: static;
+				font-size: .5em;
+			}
+		}
+		h3 {
+			@include rem_units(font-size, 2.2);
+			color: $slate;
+			padding: .5em 0;
+		}
+		p {
+			@include rem_units(font-size, 1.6);
+			color: $medGrey;
+			line-height: 1.4;
+			padding: 0;
+		}
+	}
+}

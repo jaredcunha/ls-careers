@@ -1,2 +1,107 @@
 @import "bourbon/bourbon";
 @import "modules/all";
+
+.hdr-main {
+	position: relative;
+	background: $slushie url(/wp-content/themes/ls-careers/images/header-bg.png) no-repeat center top;
+	background-size: cover;
+}
+
+.hdr-main--extended {
+	background: $silvertone;
+}
+
+/* 
+=============================================================================
+Top Bar
+========================================================================== */
+.top-bar {
+	@include clearfix;
+	padding: 20px 0;
+}
+
+.logo-main {
+	text-align: center;
+	@include respond-to(expansionA) {
+		float: left;
+	}
+	a {
+		display: inline-block;
+		width: 100px;
+		height: 30px;
+	}
+	img {
+		display: inline-block;
+		text-align: center;
+	}
+}
+
+.nav-main {
+	padding-top: 18px;
+	@include respond-to(expansionA) {
+		float: right;
+	}
+	ul {
+		text-align: center;
+	}
+	li {
+		@include rem_units(font-size, 1.5);
+		display: inline;
+		a {
+			color: #fff;
+			padding: 1em;
+		}
+	}
+	
+}
+/* 
+=============================================================================
+Hero
+========================================================================== */
+.hero {
+	padding: 14em 0;
+	text-align: center;
+	color: #fff;
+	.site-title {
+		@include rem_units(font-size, 4);
+		font-weight: normal;
+		color: #fff;
+	}
+	.site-description {
+		@include rem_units(font-size, 2.2);
+		max-width: $grid_8of12cols;
+		margin: 0 auto;
+		padding: 0;
+	}
+}
+
+/* 
+=============================================================================
+Job Search
+========================================================================== */
+.jobs-search {
+	@include rgba_fallback('background-color', rgba(0,0,0, 0.5), black);
+	@include rem_units(font-size, 1.6);
+	text-align: center;
+	padding: 1em 0;
+	select {
+		background: #fff;
+		padding: .5em 1em;
+		border-radius: 20px;
+		-webkit-appearance: none;
+		box-shadow: 0 0 0 4px rgba(255,255,255,.5);
+		margin: 0 5px;
+		cursor: pointer;
+	}
+	button {
+		@include linear-gradient(#00ccf0,#00aed3);
+		border-radius: 50%;
+		box-shadow: 0 0 0 4px rgba(255,255,255,.5), inset 0 1px 1px rgba(255,255,255,.75);
+		-webkit-appearance: none;
+		border: none;
+		width: 37px;
+		height: 37px;
+		margin-left: 5px;
+		color: #fff;
+	}
+}

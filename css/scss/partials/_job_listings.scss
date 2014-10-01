@@ -1,0 +1,81 @@
+@import "bourbon/bourbon";
+@import "modules/all";
+
+/* 
+=============================================================================
+Job Listing Summary
+========================================================================== */
+.job-listing {
+	@include clearfix;
+	border-top: 1px solid $borderLighttestGrey;
+	&:first-of-type {
+		border-top: none;
+	}
+	.job-listing-link {
+		@include transition(all .1s ease-in);
+		padding-top: 1em;
+		padding-bottom: 1em;
+		display: block;
+		margin: 1px 0;
+		position: relative;
+		&:hover {
+			background: #eaf4f9;
+		}
+		@include respond-to(expansionB) {
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+			padding-top: 2em;
+			padding-bottom: 2em;
+		}
+	}
+	.title-and-department {
+		@include respond-to(expansionB) {
+			display: table-cell;
+			vertical-align: middle;
+			width: 55.55555%;
+		}
+	}
+	.job-location {
+		@include rem_units(font-size, 1.2);
+		color: $medGrey;
+		@include respond-to(expansionB) {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+	.additional-job-info {
+		position: absolute;
+		right: 0;
+		top: 1.5em;
+		text-align: right;
+		padding-right: 10px;
+		@include respond-to(expansionB) {
+			display: table-cell;
+			vertical-align: middle;
+			position: static;
+		}
+	}
+	.listing-title {
+		@include rem_units(font-size, 1.8);
+		color: $slate;
+		font-weight: normal;
+		padding: 0;
+	}
+	.listing-department {
+		@include rem_units(font-size, 1.4);
+		padding: 0;
+		color: $medGrey;
+	}
+	.status {
+		@include rem_units(font-size, 1.1);
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	.status-full-time {
+		color: $wasabi;
+	}
+	.status-part-time {
+		color: $berry;
+	}
+}

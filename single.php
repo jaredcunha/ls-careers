@@ -13,21 +13,52 @@
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-<article>
+<main role="main" class="module module__two-cols">
+	<div class="wrap">
+		<div class="primary-col">
+			<article>
+				<div class="page-module-header pad-horiz">
+					<h1><?php the_title(); ?></h1>
+					<div class="supplement">
+						<?php
+							$terms = get_the_terms($post->ID, 'status');
+							echo '';
+							foreach ($terms as $taxindex => $taxitem) {
+							echo '<p class="status status-'. $taxitem->slug .'">' . $taxitem->name . '</p>';
+							}
+							echo ''
+						?>
+						<p class="job-location">
+							<?php
+								$terms = get_the_terms($post->ID, 'location');
+								echo '';
+								foreach ($terms as $taxindex => $taxitem) {
+								echo $taxitem->name;
+								}
+								echo ''
+							?>
+						</p>
+					</div>
+				</div>
+				<div class="post-content pad-horiz">	
+					<?php the_content(); ?>			
+					<?php 
+					    $url = get_post_meta($post->ID, 'Apply Now Link', true); 
 
-	<h2><?php the_title(); ?></h2>
-	<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-	<?php the_content(); ?>			
+						if ($url) {
+						    echo "<div class='apply-now'><p><a href='$url' class='btn'>Apply Now</a></p></div>";
+						}
+					?>
+					 
+				</div>
+		
 
-	<?php if ( get_the_author_meta( 'description' ) ) : ?>
-	<?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
-	<h3>About <?php echo get_the_author() ; ?></h3>
-	<?php the_author_meta( 'description' ); ?>
-	<?php endif; ?>
 
-	<?php comments_template( '', true ); ?>
+			</article>
+		</div>
 
-</article>
+	</div>
+</main>
 <?php endwhile; ?>
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

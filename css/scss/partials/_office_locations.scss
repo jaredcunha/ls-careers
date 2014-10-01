@@ -1,0 +1,24 @@
+@import "bourbon/bourbon";
+@import "modules/all";
+
+.office-locations-list {
+	width: $grid_4of12cols + $gutterWidth;
+	float: left;
+	h3 {
+		@include rem_units(font-size, 2.8);
+		color: $prince;
+		font-weight: normal;
+	}
+}
+
+.locations-list {
+	li {
+		@include rem_units(font-size, 1.6);
+		border-bottom: 1px dotted $borderLighttestGrey;
+		padding: .5em;
+		.count {
+			font-size: .875em;
+			color: $mutedText;
+		}
+	}
+}

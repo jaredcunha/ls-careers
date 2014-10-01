@@ -1,5 +1,7 @@
 /* Bring in the Bourbon, because you can never have enough Bourbon*/
 /* Bring in the partials */
+/* The greys */
+/* Borders */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -9,6 +11,10 @@
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
 /* ==========================================================================
    Box Sixing
    ========================================================================== */
@@ -56,21 +62,12 @@ html {
   -webkit-font-smoothing: antialiased; }
 
 html, button, input, select, textarea {
-  font-family: "ff-meta-serif-web-pro-1", "ff-meta-serif-web-pro-2", serif;
+  font-family: ProximaNovaSoft, "Helvetica Neue", Helvetica, Arial, sans;
   color: #444444; }
 
 body {
-  margin: 0; }
-
-::-moz-selection {
-  background: #bf1e2e;
-  color: #fff;
-  text-shadow: none; }
-
-::selection {
-  background: #bf1e2e;
-  color: #fff;
-  text-shadow: none; }
+  margin: 0;
+  color: #909090; }
 
 /* ==========================================================================
    Links
@@ -89,19 +86,33 @@ a:active, a:hover {
    ========================================================================== */
 /*Addresses font sizes and margins set differently in IE 6/7. | Addresses font sizes within `section` and `article` in Firefox 4+, Safari 5,and Chrome.*/
 h1, h2, h3, h4, h5, h6 {
-  font-family: "nimbus-sans-condensed-1", "nimbus-sans-condensed-2", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.07em;
+  font-family: ProximaNovaSoft, "Helvetica Neue", Helvetica, Arial, sans;
+  font-weight: normal;
   margin: 0; }
 
-h1 {
-  font-size: 2em; }
-
-h2 {
-  font-size: 1.5em; }
+h1, h2 {
+  font-size: 18px;
+  font-size: 1.8rem;
+  color: #544aa1;
+  text-transform: lowercase;
+  font-weight: normal; }
+  @media only screen and (min-width: 800px) {
+    h1, h2 {
+      font-size: 24px;
+      font-size: 2.4rem;
+      padding: 0.5em 0; } }
 
 h3 {
-  font-size: 1.17em; }
+  font-size: 16px;
+  font-size: 1.6rem;
+  color: #262626;
+  text-transform: lowercase;
+  font-weight: normal; }
+  @media only screen and (min-width: 800px) {
+    h3 {
+      font-size: 20px;
+      font-size: 2rem;
+      padding: 0.5em 0; } }
 
 h4 {
   font-size: 1em; }
@@ -129,7 +140,11 @@ mark {
   color: #000; }
 
 p, pre {
-  margin: 0; }
+  font-size: 16px;
+  font-size: 1.6rem;
+  padding: 0.5em 0;
+  margin: 0;
+  line-height: 1.5; }
 
 code, kbd, pre, samp {
   font-family: monospace, serif;
@@ -175,6 +190,8 @@ dd {
   margin: 0; }
 
 menu, ol, ul {
+  font-size: 15px;
+  font-size: 1.5rem;
   padding: 0; }
 
 ul, ol {
@@ -287,6 +304,8 @@ table {
   border-spacing: 0; }
 
 /*Remove most spacing between table cells.*/
+/* The greys */
+/* Borders */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -296,6 +315,149 @@ table {
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+/* 
+=============================================================================
+BASE ELEMENTS	
+========================================================================== */
+body {
+  font-family: ProximaNovaSoft, "Helvetica Neue", Helvetica, Arial, sans; }
+
+a {
+  color: #5fb8dd; }
+
+/* 
+=============================================================================
+@ FONT FACE
+========================================================================== */
+@font-face {
+  font-family: ProximaNovaSoft;
+  font-weight: normal;
+  font-style: normal;
+  src: url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Regular-webfont.eot');
+  src: url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Regular-webfont.woff') format('woff'), url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Regular-webfont.ttf') format('truetype'), url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Regular-webfont.svg#ProximaNovaSoft') format('svg'); }
+
+@font-face {
+  font-family: ProximaNovaSoft;
+  font-weight: bold;
+  font-style: normal;
+  src: url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.eot');
+  src: url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.eot?#iefix') format('embedded-opentype'), url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.woff') format('woff'), url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.ttf') format('truetype'), url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.svg#ProximaNovaSoft') format('svg'); }
+
+/* 
+=============================================================================
+MAIN SITE WRAPPER
+========================================================================== */
+.wrap {
+  max-width: 1000px;
+  max-width: 100rem;
+  *zoom: 1;
+  margin: 0 auto;
+  padding: 0 1.5em; }
+  .wrap:before, .wrap:after {
+    content: " ";
+    display: table; }
+  .wrap:after {
+    clear: both; }
+  @media only screen and (min-width: 640px) {
+    .wrap {
+      padding: 0 4em; } }
+  @media only screen and (min-width: 800px) {
+    .wrap {
+      padding: 0 3em; } }
+
+/* 
+=============================================================================
+Reusable Items
+========================================================================== */
+.caption-overlay {
+  position: relative; }
+  .caption-overlay img {
+    display: block;
+    width: 100%; }
+  .caption-overlay figcaption {
+    font-size: 12px;
+    font-size: 1.2rem;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1em 1.5em;
+    color: #fff;
+    text-transform: uppercase; }
+
+.new {
+  font-size: 11px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #fff;
+  background: #f0812b;
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 2px;
+  padding: 0.45em 0.6em;
+  margin-top: 0.15em;
+  line-height: 1; }
+
+.status {
+  font-size: 11px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.status-full-time {
+  color: #9eae3d; }
+
+.status-part-time {
+  color: #508395; }
+
+.no-content {
+  font-size: 18px;
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 2em 0; }
+  .no-content:before {
+    content: "— "; }
+  .no-content:after {
+    content: " —"; }
+
+.pad-horiz {
+  padding-left: 10px;
+  padding-right: 10px; }
+  @media only screen and (min-width: 800px) {
+    .pad-horiz {
+      padding-left: 20px;
+      padding-right: 20px; } }
+
+.btn {
+  background-color: #58cef9;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #58cef9), color-stop(100%, #3eabd6));
+  background-image: -webkit-linear-gradient(top, #58cef9, #3eabd6);
+  background-image: linear-gradient(to bottom,#58cef9, #3eabd6);
+  font-size: 18px;
+  font-size: 1.8rem;
+  color: #fff;
+  text-transform: lowercase;
+  font-weight: bold;
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  padding: 1em 3em;
+  border: 1px solid #298EB6;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  margin: 1.5em 0 0;
+  display: block;
+  width: 100%;
+  text-align: center; }
+  @media only screen and (min-width: 640px) {
+    .btn {
+      width: auto;
+      display: inline-block; } }
+
+/* The greys */
+/* Borders */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -305,6 +467,114 @@ table {
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+.hdr-main {
+  position: relative;
+  background: #5fb8dd url(/wp-content/themes/ls-careers/images/header-bg.png) no-repeat center top;
+  background-size: cover; }
+
+.hdr-main--extended {
+  background: #d9d9d9; }
+
+/* 
+=============================================================================
+Top Bar
+========================================================================== */
+.top-bar {
+  *zoom: 1;
+  padding: 20px 0; }
+  .top-bar:before, .top-bar:after {
+    content: " ";
+    display: table; }
+  .top-bar:after {
+    clear: both; }
+
+.logo-main {
+  text-align: center; }
+  @media only screen and (min-width: 640px) {
+    .logo-main {
+      float: left; } }
+  .logo-main a {
+    display: inline-block;
+    width: 100px;
+    height: 30px; }
+  .logo-main img {
+    display: inline-block;
+    text-align: center; }
+
+.nav-main {
+  padding-top: 18px; }
+  @media only screen and (min-width: 640px) {
+    .nav-main {
+      float: right; } }
+  .nav-main ul {
+    text-align: center; }
+  .nav-main li {
+    font-size: 15px;
+    font-size: 1.5rem;
+    display: inline; }
+    .nav-main li a {
+      color: #fff;
+      padding: 1em; }
+
+/* 
+=============================================================================
+Hero
+========================================================================== */
+.hero {
+  padding: 14em 0;
+  text-align: center;
+  color: #fff; }
+  .hero .site-title {
+    font-size: 40px;
+    font-size: 4rem;
+    font-weight: normal;
+    color: #fff; }
+  .hero .site-description {
+    font-size: 22px;
+    font-size: 2.2rem;
+    max-width: 65.95745%;
+    margin: 0 auto;
+    padding: 0; }
+
+/* 
+=============================================================================
+Job Search
+========================================================================== */
+.jobs-search {
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 1em 0; }
+  .jobs-search select {
+    background: #fff;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    -webkit-appearance: none;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
+    margin: 0 5px;
+    cursor: pointer; }
+  .jobs-search button {
+    background-color: #00ccf0;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00ccf0), color-stop(100%, #00aed3));
+    background-image: -webkit-linear-gradient(#00ccf0, #00aed3);
+    background-image: linear-gradient(#00ccf0, #00aed3);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.75);
+    -webkit-appearance: none;
+    border: none;
+    width: 37px;
+    height: 37px;
+    margin-left: 5px;
+    color: #fff; }
+
+/* The greys */
+/* Borders */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -314,8 +584,704 @@ table {
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+/* 
+=============================================================================
+Main Footer Container
+========================================================================== */
+.site-footer {
+  margin-top: 50px;
+  padding: 4em 0;
+  background: #544aa1; }
+  .site-footer .column {
+    width: 50%;
+    float: left;
+    margin-bottom: 3em;
+    text-align: left;
+    padding-right: 20px; }
+    @media only screen and (min-width: 800px) {
+      .site-footer .column {
+        width: 23.40426%;
+        margin-right: 2.12766%;
+        padding-right: 0; }
+        .site-footer .column:first-child {
+          margin-right: 0; } }
+
+/* 
+=============================================================================
+Footer Links
+========================================================================== */
+.footer-links-heading {
+  font-size: 16px;
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 0; }
+  @media only screen and (min-width: 800px) {
+    .footer-links-heading {
+      margin-bottom: 0.3em; } }
+
+.footer-links {
+  font-size: 14px;
+  font-size: 1.4rem;
+  color: #fff; }
+  .footer-links a {
+    color: #d4d1e7;
+    color: rgba(255, 255, 255, 0.75);
+    display: block;
+    padding: 0.25em 0; }
+
+/* 
+=============================================================================
+Site Summary
+========================================================================== */
+.site-summary {
+  border-color: #7e77b8;
+  border-color: rgba(255, 255, 255, 0.25);
+  border-width: 1px;
+  border-style: solid;
+  border-left: none;
+  border-right: none;
+  padding: 1em 8.51064%;
+  margin: 2em 0;
+  color: #fff;
+  text-align: center; }
+  .site-summary a {
+    font-weight: bold; }
+  .site-summary p {
+    font-size: 16px;
+    font-size: 1.6rem; }
+    @media only screen and (min-width: 640px) {
+      .site-summary p {
+        font-size: 18px;
+        font-size: 1.8rem; } }
+
+/* The greys */
+/* Borders */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+/* 
+=============================================================================
+Homepage Modules
+========================================================================== */
+.module {
+  padding: 25px 0; }
+  @media only screen and (min-width: 640px) {
+    .module {
+      padding: 50px 0; } }
+
+.module__intro {
+  text-align: center;
+  padding: 4.3em 0; }
+  .module__intro h2 {
+    font-size: 32px;
+    font-size: 3.2rem;
+    font-weight: normal;
+    color: #555555; }
+  .module__intro p {
+    font-size: 16px;
+    font-size: 1.6rem;
+    color: #909090;
+    line-height: 1.5;
+    padding-top: 0.75em; }
+
+/* 
+=============================================================================
+Normal Page Modules
+========================================================================== */
+.page-module-header {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #e1e1e1;
+  display: table;
+  table-layout: fixed;
+  width: 100%; }
+  @media only screen and (min-width: 800px) {
+    .page-module-header {
+      padding: 0.5em 20px; } }
+  .page-module-header h1 {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle; }
+  .page-module-header .supplement {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle; }
+    .page-module-header .supplement .secondary {
+      font-size: 11px;
+      font-size: 1.1rem;
+      color: #909090; }
+    .page-module-header .supplement p {
+      padding: 0;
+      line-height: 1; }
+
+.primary-col {
+  margin-bottom: 5em; }
+  @media only screen and (min-width: 640px) {
+    .primary-col {
+      width: 74.46809%;
+      float: right;
+      margin-bottom: 0; } }
+
+@media only screen and (min-width: 640px) {
+  .secondary-col {
+    width: 23.40426%;
+    float: left; } }
+.secondary-col h2 {
+  color: #262626; }
+
+.page-module-header + .post-content {
+  padding-top: 2em; }
+
+/* 
+=============================================================================
+Sidebar Module
+========================================================================== */
+@media only screen and (min-width: 640px) {
+  .sidebar-module .link-list {
+    font-size: 12px;
+    font-size: 1.2rem; } }
+@media only screen and (min-width: 800px) {
+  .sidebar-module .link-list {
+    font-size: 15px;
+    font-size: 1.5rem; } }
+.sidebar-module .link-list li {
+  position: relative;
+  padding: 0.5em 0 0.5em 1em; }
+  .sidebar-module .link-list li:before {
+    content: "";
+    border-radius: 50%;
+    display: block;
+    background: #262626;
+    width: 0.25em;
+    height: 0.25em;
+    position: absolute;
+    left: 0;
+    top: 1em; }
+
+/* The greys */
+/* Borders */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+.department-tiles {
+  *zoom: 1;
+  text-align: center; }
+  .department-tiles:before, .department-tiles:after {
+    content: " ";
+    display: table; }
+  .department-tiles:after {
+    clear: both; }
+  .department-tiles .tile {
+    width: 100%;
+    padding: 5px;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0; }
+    @media only screen and (min-width: 640px) {
+      .department-tiles .tile {
+        width: 50%; } }
+    @media only screen and (min-width: 800px) {
+      .department-tiles .tile {
+        width: 33.33333%; } }
+    .department-tiles .tile .tile-link {
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      z-index: 4; }
+      @media only screen and (min-width: 640px) {
+        .department-tiles .tile .tile-link {
+          display: block; } }
+    .department-tiles .tile .overlay {
+      display: none; }
+      @media only screen and (min-width: 640px) {
+        .department-tiles .tile .overlay {
+          -webkit-transition: all 0.5s ease-in;
+          -moz-transition: all 0.5s ease-in;
+          transition: all 0.5s ease-in;
+          background: rgba(0, 0, 0, 0.5);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 5;
+          display: block; } }
+    .department-tiles .tile .department-name {
+      font-size: 13px;
+      font-size: 1.3rem;
+      color: #fff;
+      text-align: center;
+      display: table-cell;
+      padding: 0.5em 10px;
+      text-transform: uppercase;
+      overflow: hidden;
+      background: #e9ba26;
+      vertical-align: middle; }
+      @media only screen and (min-width: 640px) {
+        .department-tiles .tile .department-name {
+          font-size: 16px;
+          font-size: 1.6rem;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 7;
+          width: 100%;
+          display: block;
+          background: none;
+          padding: 0.5em 20px; } }
+      .department-tiles .tile .department-name:after {
+        content: "\0000a0»";
+        font-weight: bold; }
+        @media only screen and (min-width: 640px) {
+          .department-tiles .tile .department-name:after {
+            content: none; } }
+      .department-tiles .tile .department-name:before {
+        -webkit-transition: all 0.08s ease-in;
+        -moz-transition: all 0.08s ease-in;
+        transition: all 0.08s ease-in;
+        content: "";
+        width: 100%;
+        height: 100%;
+        bottom: -100%;
+        left: 0;
+        background: #e9ba26;
+        z-index: 6;
+        position: absolute;
+        display: block; }
+      .department-tiles .tile .department-name .inner {
+        position: relative;
+        z-index: 10; }
+    .department-tiles .tile img {
+      display: table-cell;
+      width: 100%;
+      height: auto; }
+      @media only screen and (min-width: 640px) {
+        .department-tiles .tile img {
+          -webkit-transition: all 3s ease-out;
+          -moz-transition: all 3s ease-out;
+          transition: all 3s ease-out;
+          display: block;
+          width: 100%; } }
+
+@media only screen and (min-width: 640px) {
+  .tile-link:hover .overlay {
+    background: rgba(0, 0, 0, 0); }
+  .tile-link:hover img {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1); }
+  .tile-link:hover .department-name {
+    z-index: 30; }
+  .tile-link:hover .department-name:before {
+    bottom: 0; } }
+
+/* The greys */
+/* Borders */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+/* 
+=============================================================================
+Values List
+========================================================================== */
+.ls-vaules-list {
+  *zoom: 1; }
+  .ls-vaules-list:before, .ls-vaules-list:after {
+    content: " ";
+    display: table; }
+  .ls-vaules-list:after {
+    clear: both; }
+  @media only screen and (min-width: 640px) {
+    .ls-vaules-list {
+      text-align: center; } }
+  .ls-vaules-list li {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    padding: 0 0 18px 17.02128%;
+    position: relative; }
+    @media only screen and (min-width: 640px) {
+      .ls-vaules-list li {
+        width: 50%;
+        min-height: 240px;
+        padding: 18px; } }
+    @media only screen and (min-width: 800px) {
+      .ls-vaules-list li {
+        width: 33.33333%; } }
+    .ls-vaules-list li .icon {
+      position: absolute;
+      font-size: 4px;
+      left: 0;
+      top: 2em; }
+      .ls-vaules-list li .icon:before {
+        display: block;
+        margin: 0 auto; }
+      @media only screen and (min-width: 500px) {
+        .ls-vaules-list li .icon {
+          font-size: 7.5px; } }
+      @media only screen and (min-width: 640px) {
+        .ls-vaules-list li .icon {
+          position: static;
+          font-size: 0.5em; } }
+    .ls-vaules-list li h3 {
+      font-size: 22px;
+      font-size: 2.2rem;
+      color: #555555;
+      padding: 0.5em 0; }
+    .ls-vaules-list li p {
+      font-size: 16px;
+      font-size: 1.6rem;
+      color: #909090;
+      line-height: 1.4;
+      padding: 0; }
+
+/* The greys */
+/* Borders */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+.office-locations-list {
+  width: 34.04255%;
+  float: left; }
+  .office-locations-list h3 {
+    font-size: 28px;
+    font-size: 2.8rem;
+    color: #544aa1;
+    font-weight: normal; }
+
+.locations-list li {
+  font-size: 16px;
+  font-size: 1.6rem;
+  border-bottom: 1px dotted #e1e1e1;
+  padding: 0.5em; }
+  .locations-list li .count {
+    font-size: 0.875em;
+    color: #aaaaaa; }
+
+/* The greys */
+/* Borders */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+/* 
+=============================================================================
+PERKS LIST DETAILED
+========================================================================== */
+.perks-list-detailed {
+  *zoom: 1;
+  margin: 1em 0; }
+  .perks-list-detailed:before, .perks-list-detailed:after {
+    content: " ";
+    display: table; }
+  .perks-list-detailed:after {
+    clear: both; }
+  .perks-list-detailed li {
+    padding: 0 5.875% 5em 17.02128%;
+    position: relative; }
+    @media only screen and (min-width: 800px) {
+      .perks-list-detailed li {
+        float: left;
+        width: 50%;
+        padding: 0 5.875% 2.5em 8.51064%; } }
+  .perks-list-detailed .icon {
+    position: absolute;
+    top: 0.3em;
+    left: 0;
+    font-size: 7px; }
+    @media only screen and (min-width: 500px) {
+      .perks-list-detailed .icon {
+        font-size: 0.5em; } }
+  .perks-list-detailed h3 {
+    font-size: 20px;
+    font-size: 2rem;
+    color: #508395;
+    font-weight: normal;
+    padding: 0; }
+  .perks-list-detailed p {
+    font-size: 15px;
+    font-size: 1.5rem; }
+
+/* 
+=============================================================================
+PERKS QUICK LIST
+========================================================================== */
+.perks-quick-list ul {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #dddddd;
+  position: relative; }
+  .perks-quick-list ul:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    position: absolute;
+    border-left: 1px solid #dddddd; }
+    @media only screen and (min-width: 800px) {
+      .perks-quick-list ul:after {
+        left: 33.33333%; } }
+  @media only screen and (min-width: 800px) {
+    .perks-quick-list ul:before {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 100%;
+      top: 0;
+      left: 66.66667%;
+      position: absolute;
+      border-left: 1px solid #dddddd; } }
+  .perks-quick-list ul li {
+    font-size: 11px;
+    font-size: 1.1rem;
+    width: 50%;
+    float: left;
+    padding: 1em 0 1em 5px;
+    border-bottom: 1px solid #dddddd;
+    color: #508395; }
+    @media only screen and (min-width: 640px) {
+      .perks-quick-list ul li:before {
+        content: "• "; } }
+    @media only screen and (min-width: 640px) {
+      .perks-quick-list ul li {
+        font-size: 14px;
+        font-size: 1.4rem;
+        padding: 1em; } }
+    @media only screen and (min-width: 800px) {
+      .perks-quick-list ul li {
+        font-size: 16px;
+        font-size: 1.6rem;
+        width: 33.33333%; } }
+
+/* The greys */
+/* Borders */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+/* 
+=============================================================================
+Job Listing Summary
+========================================================================== */
+.job-listing {
+  *zoom: 1;
+  border-top: 1px solid #e1e1e1; }
+  .job-listing:before, .job-listing:after {
+    content: " ";
+    display: table; }
+  .job-listing:after {
+    clear: both; }
+  .job-listing:first-of-type {
+    border-top: none; }
+  .job-listing .job-listing-link {
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    display: block;
+    margin: 1px 0;
+    position: relative; }
+    .job-listing .job-listing-link:hover {
+      background: #eaf4f9; }
+    @media only screen and (min-width: 800px) {
+      .job-listing .job-listing-link {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        padding-top: 2em;
+        padding-bottom: 2em; } }
+  @media only screen and (min-width: 800px) {
+    .job-listing .title-and-department {
+      display: table-cell;
+      vertical-align: middle;
+      width: 55.55555%; } }
+  .job-listing .job-location {
+    font-size: 12px;
+    font-size: 1.2rem;
+    color: #909090; }
+    @media only screen and (min-width: 800px) {
+      .job-listing .job-location {
+        display: table-cell;
+        vertical-align: middle; } }
+  .job-listing .additional-job-info {
+    position: absolute;
+    right: 0;
+    top: 1.5em;
+    text-align: right;
+    padding-right: 10px; }
+    @media only screen and (min-width: 800px) {
+      .job-listing .additional-job-info {
+        display: table-cell;
+        vertical-align: middle;
+        position: static; } }
+  .job-listing .listing-title {
+    font-size: 18px;
+    font-size: 1.8rem;
+    color: #555555;
+    font-weight: normal;
+    padding: 0; }
+  .job-listing .listing-department {
+    font-size: 14px;
+    font-size: 1.4rem;
+    padding: 0;
+    color: #909090; }
+  .job-listing .status {
+    font-size: 11px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold; }
+  .job-listing .status-full-time {
+    color: #9eae3d; }
+  .job-listing .status-part-time {
+    color: #508395; }
+
 /* CSS from Vender Plugins */
+/* CSS Sprites */
+.icon {
+  font-size: 10px; }
+
+.icon:before {
+  content: ' ';
+  vertical-align: middle;
+  display: inline-block;
+  background-image: url("../svg/sprite.svg");
+  background-repeat: no-repeat;
+  background-size: 9.4em 86.6em; }
+
+.no-svg .icon:before {
+  background-image: url("../svg/sprite.png"); }
+
+.champion-good-ideas:before {
+  background-position: 0em 0em;
+  width: 9.4em;
+  height: 9.4em; }
+
+.live-hungry:before {
+  background-position: 0em -9.4em;
+  width: 9.4em;
+  height: 9.4em; }
+
+.make-strong-moves:before {
+  background-position: 0em -18.8em;
+  width: 9.4em;
+  height: 9.4em; }
+
+.perk-bike-racks:before {
+  background-position: 0em -28.2em;
+  width: 6.6em;
+  height: 6.6em; }
+
+.perk-classes:before {
+  background-position: 0em -34.8em;
+  width: 6.6em;
+  height: 6.6em; }
+
+.perk-commute-reimbursement:before {
+  background-position: 0em -41.4em;
+  width: 6.6em;
+  height: 6.6em; }
+
+.perk-dress-code:before {
+  background-position: 0em -48em;
+  width: 6.6em;
+  height: 6.6em; }
+
+.perk-gym-memberships:before {
+  background-position: 0em -54.6em;
+  width: 6.6em;
+  height: 6.6em; }
+
+.perk-snacks-and-drinks:before {
+  background-position: 0em -61.2em;
+  width: 6.6em;
+  height: 6.6em; }
+
+.recognize-others:before {
+  background-position: 0em -67.8em;
+  width: 9.4em;
+  height: 9.4em; }
+
+.surprise-and-delight:before {
+  background-position: 0em -77.2em;
+  width: 9.4em;
+  height: 9.4em; }
+
 /*Keyframes are last */
+/* The greys */
+/* Borders */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -325,3 +1291,7 @@ table {
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */

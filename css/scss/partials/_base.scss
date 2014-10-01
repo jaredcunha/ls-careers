@@ -1,2 +1,130 @@
 @import "bourbon/bourbon";
 @import "modules/all";
+
+
+
+
+/* 
+=============================================================================
+BASE ELEMENTS	
+========================================================================== */
+body {
+	font-family: $sans;
+}
+
+a {
+	color: $slushie;
+}
+
+/* 
+=============================================================================
+@ FONT FACE
+========================================================================== */
+@include font-face(ProximaNovaSoft, '/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Regular-webfont');
+@include font-face(ProximaNovaSoft, '/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont', bold);
+
+/* 
+=============================================================================
+MAIN SITE WRAPPER
+========================================================================== */
+.wrap {
+	@include rem-units(max-width, 100);
+	@include clearfix;
+	margin: 0 auto;
+	padding: 0 1.5em;
+	@include respond-to(expansionA) {
+		padding: 0  4em
+	}
+	@include respond-to(expansionB) {
+		padding: 0 3em
+	}
+}
+
+/* 
+=============================================================================
+Reusable Items
+========================================================================== */
+.caption-overlay {
+	position: relative;
+	img {
+		display: block;
+		width: 100%;
+	}
+	figcaption {
+		@include rem_units(font-size, 1.2);
+		display: block;
+		position: absolute;
+		bottom: 0; 
+		left: 0;
+		padding: 1em 1.5em;
+		color: #fff;
+		text-transform: uppercase;
+	}
+}
+
+.new {
+	@include rem_units(font-size, 1.1);
+	text-transform: uppercase;
+	color: #fff;
+	background: $clementine;
+	display: inline-block;
+	font-weight: bold;
+	border-radius: 2px;
+	padding: .45em .6em;
+	margin-top: .15em;
+	line-height: 1;
+}
+
+.status {
+	@include rem_units(font-size, 1.1);
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.status-full-time {
+	color: $wasabi;
+}
+.status-part-time {
+	color: $berry;
+}
+
+.no-content {
+	@include rem_units(font-size, 1.8);
+	text-align: center;
+	padding: 2em 0;
+	&:before {
+		content: "— "
+	}
+	&:after {
+		content: " —"
+	}
+}
+
+.pad-horiz {
+	padding-left: 10px;
+	padding-right: 10px;
+	@include respond-to(expansionB) {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+.btn {
+	@include linear-gradient(top, #58cef9, #3eabd6);
+	@include rem_units(font-size, 1.8);
+	color: #fff;
+	text-transform: lowercase;
+	font-weight: bold;
+	box-shadow: inset 0 1px 0px rgba(255,255,255,.5);
+	border-radius: 4px;
+	padding: 1em 3em;
+	border: 1px solid #298EB6;
+	text-shadow: 0 2px 2px rgba(0,0,0,.25);
+	margin: 1.5em 0 0;
+	display: block;
+	width: 100%;
+	text-align: center;
+	@include respond-to(expansionA) {
+		width: auto;
+		display: inline-block;
+	}
+}

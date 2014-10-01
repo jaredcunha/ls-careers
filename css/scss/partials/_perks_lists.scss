@@ -1,0 +1,97 @@
+@import "bourbon/bourbon";
+@import "modules/all";
+
+/* 
+=============================================================================
+PERKS LIST DETAILED
+========================================================================== */
+.perks-list-detailed {
+	@include clearfix;
+	margin: 1em 0;
+	li {
+		padding: 0 5.875% 5em $grid_2of12cols + $gutterWidth;
+		position: relative;
+		@include respond-to(expansionB) {
+			float: left;
+			width: 50%;
+			padding: 0 5.875% 2.5em $grid_1of12cols + $gutterWidth;
+		}
+	}
+	.icon {
+		position: absolute;
+		top: .3em;
+		left: 0;
+		font-size: 7px;
+		@include respond-to(expansionA__minor) {
+			font-size: .5em;
+		}
+	}
+	h3 {
+		@include rem_units(font-size, 2);
+		color: $berry;
+		font-weight: normal;
+		padding: 0;
+	}
+	p {
+		@include rem_units(font-size, 1.5);
+	}
+}
+
+/* 
+=============================================================================
+PERKS QUICK LIST
+========================================================================== */
+.perks-quick-list {
+	ul {
+		width: 100%;
+		overflow: hidden;
+		border-top: 1px solid $borderLightGrey;
+		position: relative;
+		&:after {
+			content: "";
+			display: block;
+			width: 1px;
+			height: 100%;
+			top: 0;
+			left: 50%;
+			position: absolute;
+			border-left: 1px solid $borderLightGrey;
+			@include respond-to(expansionB) {
+				left: 33.333333333333333%;
+			}
+		}
+		&:before {
+			@include respond-to(expansionB) {
+				content: "";
+				display: block;
+				width: 1px;
+				height: 100%;
+				top: 0;
+				left: 66.666666666666666%;
+				position: absolute;
+				border-left: 1px solid $borderLightGrey;
+			}
+		}
+		li {
+			@include rem_units(font-size, 1.1);
+			width: 50%;
+			float: left;
+			padding: 1em 0 1em 5px;
+			border-bottom: 1px solid $borderLightGrey;
+			color: $berry;
+			&:before {
+				@include respond-to(expansionA) {
+					content: "• ";
+				}
+			}
+			@include respond-to(expansionA) {
+				@include rem_units(font-size, 1.4);
+				padding: 1em;
+			}
+			@include respond-to(expansionB) {
+				@include rem_units(font-size, 1.6);
+				width: 33.3333333%;
+			}
+		}
+	}
+}

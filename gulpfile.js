@@ -15,8 +15,9 @@
     clean = require('gulp-clean'),
 
     // Images,
-    svgmin = require('gulp-svgmin')
+    svgmin = require('gulp-svgmin'),
     imagemin = require('gulp-imagemin'),
+    svgSprite = require("gulp-svg-sprites"),
 
     // Stats and Things
     size = require('gulp-size');
@@ -53,14 +54,25 @@
     gulp.task('move', function(){
       gulp.src('js/polyfills/*.*')
       .pipe(gulp.dest('dist/prod/js'));
+      gulp.src('assets/svg/sprite.svg')
+      .pipe(gulp.dest('dist/prod/svg'));
     });
 
     // Images
     gulp.task('svgmin', function() {
-        gulp.src('./dev/img/svg/*.svg')
+        gulp.src('images/*.svg')
         .pipe(svgmin())
-        .pipe(gulp.dest('./dev/img/svg'))
-        .pipe(gulp.dest('./prod/img/svg'));
+        .pipe(gulp.dest('dist/dev/images/svg'))
+        .pipe(gulp.dest('dist/prod/images/svg'));
+    });
+
+    gulp.task('sprites', function () {
+        return gulp.src('images/icons/*.svg')
+            .pipe(svgSprite({
+                 cssFile: "scss/_sprite.scss",
+                 padding: 4
+             }))
+            .pipe(gulp.dest("assets"));
     });
 
     gulp.task('imagemin', function () {
@@ -79,12 +91,9 @@
 
 //
 
-
-
-
     gulp.task('watch', function(){
         gulp.watch('css/scss/**/*.scss', ['sass']);
         gulp.watch(["js/**/*.js", "!js/build/**/*.js", "!js/build/*.js"], ['scripts', 'lint', 'move']);
     });
 
-    gulp.task('default', ['watch'])
+    gulp.task('default', ['watch', 'move'])

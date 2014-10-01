@@ -1,0 +1,83 @@
+.icon {
+    font-size: 10px;
+}
+
+.icon:before {
+    content:' ';
+    vertical-align:middle;
+    display: inline-block;
+    background-image: url("../svg/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 9.4em 86.6em;
+}
+
+.no-svg .icon:before {
+    background-image: url("../svg/sprite.png");
+}
+
+.champion-good-ideas:before {
+    background-position: 0em 0em;
+    width: 9.4em;
+    height: 9.4em;
+}
+
+.live-hungry:before {
+    background-position: 0em -9.4em;
+    width: 9.4em;
+    height: 9.4em;
+}
+
+.make-strong-moves:before {
+    background-position: 0em -18.8em;
+    width: 9.4em;
+    height: 9.4em;
+}
+
+.perk-bike-racks:before {
+    background-position: 0em -28.2em;
+    width: 6.6em;
+    height: 6.6em;
+}
+
+.perk-classes:before {
+    background-position: 0em -34.8em;
+    width: 6.6em;
+    height: 6.6em;
+}
+
+.perk-commute-reimbursement:before {
+    background-position: 0em -41.4em;
+    width: 6.6em;
+    height: 6.6em;
+}
+
+.perk-dress-code:before {
+    background-position: 0em -48em;
+    width: 6.6em;
+    height: 6.6em;
+}
+
+.perk-gym-memberships:before {
+    background-position: 0em -54.6em;
+    width: 6.6em;
+    height: 6.6em;
+}
+
+.perk-snacks-and-drinks:before {
+    background-position: 0em -61.2em;
+    width: 6.6em;
+    height: 6.6em;
+}
+
+.recognize-others:before {
+    background-position: 0em -67.8em;
+    width: 9.4em;
+    height: 9.4em;
+}
+
+.surprise-and-delight:before {
+    background-position: 0em -77.2em;
+    width: 9.4em;
+    height: 9.4em;
+}
+

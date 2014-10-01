@@ -1,0 +1,118 @@
+@import "bourbon/bourbon";
+@import "modules/all";
+
+/* 
+=============================================================================
+Homepage Modules
+========================================================================== */
+.module {
+	padding: 25px 0;
+	@include respond-to(expansionA) {
+		padding: 50px 0;
+	}
+}
+
+.module__intro {
+	text-align: center;
+	padding: 4.3em 0;
+	h2 {
+		@include rem_units(font-size, 3.2);
+		font-weight: normal;
+		color: $slate;
+	}
+	p {
+		@include rem_units(font-size, 1.6);
+		color: $medGrey;
+		line-height: 1.5;
+		padding-top: .75em;
+	}
+}
+
+/* 
+=============================================================================
+Normal Page Modules
+========================================================================== */
+.page-module-header {
+	padding-top: .5em;
+	padding-bottom: .5em;
+	border-bottom: 1px solid $borderLighttestGrey;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	@include respond-to(expansionB) {
+		padding: .5em 20px;
+	}
+	h1 {
+		display: table-cell;
+		text-align: left;
+		vertical-align: middle;
+	}
+	.supplement {
+		display: table-cell;
+		text-align: right;
+		vertical-align: middle;
+		.secondary {
+			@include rem_units(font-size, 1.1);
+			color: $medGrey;
+		}
+		p {
+			padding: 0;
+			line-height: 1;
+		}
+	}
+}
+
+.primary-col {
+	margin-bottom: 5em;
+	@include respond-to(expansionA) {
+		width: $grid_9of12cols;
+		float: right;
+		margin-bottom: 0;
+	}
+}
+
+.secondary-col {
+	@include respond-to(expansionA) {
+		width: $grid_3of12cols;
+		float: left;
+	}
+	h2 {
+		color: $whale;
+	}
+}
+
+.post-content {
+	.page-module-header + & {
+		padding-top: 2em;
+		}
+}
+
+/* 
+=============================================================================
+Sidebar Module
+========================================================================== */
+.sidebar-module {
+	.link-list {
+		@include respond-to(expansionA) {
+			@include rem_units(font-size, 1.2);
+		}
+		@include respond-to(expansionB) {
+			@include rem_units(font-size, 1.5);
+		}
+		li {
+			position: relative;
+			padding: .5em 0 .5em 1em;
+			&:before {
+				content: "";
+				border-radius: 50%;
+				display: block;
+				background: $whale;
+				width: .25em;
+				height: .25em;
+				position: absolute;
+				left: 0;
+				top: 1em;
+			}
+		}
+	}
+}

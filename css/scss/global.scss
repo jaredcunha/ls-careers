@@ -6,8 +6,17 @@
 @import "partials/base";
 @import "partials/header";
 @import "partials/footer";
+@import "partials/content_modules";
+@import "partials/department_tiles";
+@import "partials/values";
+@import "partials/office_locations";
+@import "partials/perks_lists";
+@import "partials/job_listings";
 
 /* CSS from Vender Plugins */
+
+/* CSS Sprites */
+@import "../../assets/scss/sprite";
 
 /*Keyframes are last */
 @import "partials/keyframes";
