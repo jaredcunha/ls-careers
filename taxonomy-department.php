@@ -23,12 +23,20 @@
 			<div class="page-module-header pad-horiz">
 				<h1><?php echo single_cat_title(); ?></h1>
 				<div class="supplement">
-					<p class="secondary"><?php echo $wp_query->found_posts;?> job openings</p>
+					<p class="secondary">
+						<?php printf( __( '%d %s' ), $wp_query->found_posts, _n( 'job opening', 'job openings', $wp_query->found_posts), get_search_query() ); ?>
+					</p>
 				</div>
 			</div>
 			
 
 			<div class="pad-horiz">
+				<?php if (function_exists('department-image'))
+					{
+					    $metaValue = get_terms_meta($category_id, $meta_key);
+					    echo $metaValue;
+					}
+				?>
 				<?php echo category_description(); ?>
 			</div>
 			
@@ -40,22 +48,29 @@
 				<?php if ( have_posts() ): ?>
 					<?php $posts = query_posts($query_string .'&orderby=title&order=asc&posts_per_page=-1'); ?>
 					<?php while ( have_posts() ) : the_post(); ?>
-						<article class="job-listing">
-							<a href="<?php esc_url( the_permalink() ); ?>" class="job-listing-link pad-horiz">
-								<div class="title-and-department">
-									<h3 class="listing-title"><?php echo the_title(); ?></h3>
-									<p class="listing-department"><?php echo single_cat_title(); ?></p>
-								</div>
-								<p class="job-location">
-									<?php
+						<article class="job-listing" data-job-location="<?php
 										$terms = get_the_terms($post->ID, 'location');
 										echo '';
 										foreach ($terms as $taxindex => $taxitem) {
 										echo $taxitem->name;
 										}
 										echo ''
+									?>">
+							<a href="<?php esc_url( the_permalink() ); ?>" class="job-listing-link pad-horiz">
+								<div class="title-and-department">
+									<h3 class="listing-title"><?php echo the_title(); ?></h3>
+									<p class="listing-department"><?php echo single_cat_title(); ?></p>
+								</div>
+								<div class="job-location">
+									<?php
+										$terms = get_the_terms($post->ID, 'location');
+										echo '';
+										foreach ($terms as $taxindex => $taxitem) {
+										echo '<p>' . $taxitem->name . '</p>';
+										}
+										echo ''
 									?>
-								</p>
+								</div>
 								<div class="additional-job-info">
 									<?php
 										$terms = get_the_terms($post->ID, 'status');

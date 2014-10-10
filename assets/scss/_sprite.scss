@@ -3,12 +3,12 @@
 }
 
 .icon:before {
-    content:' ';
+    content:"";
     vertical-align:middle;
     display: inline-block;
     background-image: url("../svg/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 9.4em 86.6em;
+    background-size: 9.4em 89.1em;
 }
 
 .no-svg .icon:before {
@@ -75,8 +75,14 @@
     height: 9.4em;
 }
 
-.surprise-and-delight:before {
+.search:before {
     background-position: 0em -77.2em;
+    width: 2.41em;
+    height: 2.41em;
+}
+
+.surprise-and-delight:before {
+    background-position: 0em -79.7em;
     width: 9.4em;
     height: 9.4em;
 }

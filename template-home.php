@@ -18,10 +18,10 @@
 		</div>
 	</div>
 	<form method="get" action="<?php esc_url( home_url( '/' ) ); ?>" id="findJobs" class="jobs-search">
-		<div class="wrap">       
-		   	<?php custom_taxonomy_dropdown( 'department' ); ?>
-		   	<?php custom_taxonomy_dropdown( 'location' ); ?>
-		   	<button type="submit">submit</button>
+		<div class="search-wrap">       
+		   	<span class="select-wrap"><?php custom_taxonomy_dropdown( 'department' ); ?></span>
+		   	<span class="select-wrap"><?php custom_taxonomy_dropdown( 'location' ); ?></span>
+		   	<button type="submit" title="search"><span class="icon search"></span></button>
 	   	</div>
 	</form>
 </header>
@@ -31,7 +31,7 @@
 			<div class="wrap">
 				<header class="module__intro">
 					<h2><?php the_block('Values Header',array('type' => 'one-liner','apply_filters' => false)) ?></h2>
-					<p><?php the_block('Values Descriptive Text') ?></p>
+					<?php the_block('Values Descriptive Text') ?>
 				</header>
 				<ul class="ls-vaules-list">
 					<li class="live-hungry">
@@ -86,6 +86,10 @@
 				<header class="module__intro">
 					<h2><?php the_block('Jobs by Location Header',array('type' => 'one-liner','apply_filters' => false)) ?></h2>
 				</header>
+				<div class="office-locations-images">
+					<span class="location-map us-locations"><img src="/wp-content/themes/ls-careers/images/us-locations.png" alt="" /></span>
+					<span class="location-map europe-locations"><img src="/wp-content/themes/ls-careers/images/europe-locations.png" alt="" /></span>
+				</div>
 				<div class="office-locations-list">
 					<h3>Office Locations</h3>
 					<?php location_list( 'location' ); ?>

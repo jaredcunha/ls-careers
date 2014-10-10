@@ -23,6 +23,17 @@ Main Footer Container
 				margin-right: 0;
 			}
 		}
+	}
+	.copyright {
+		@include rem_units(font-size, 1.2);
+		@include rgba_fallback('color', rgba(255,255,255, 0.75), $prince);
+		a {
+			@include rgba_fallback('color', rgba(255,255,255, 0.75), $prince);
+			text-decoration: underline;
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}	
 }
 
@@ -66,6 +77,7 @@ Site Summary
 	text-align: center;
 	a {
 		font-weight: bold;
+		color: $slushie;
 	}
 	p {
 		@include rem_units(font-size, 1.6);

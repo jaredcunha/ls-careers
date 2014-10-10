@@ -20,9 +20,9 @@
 		</div>
 		<div class="wrap">
 			<div class="site-summary">
-				<p><?php echo do_shortcode('[block id="1"]');?></p>
+				<?php echo do_shortcode('[block id="1"]');?>
 			</div>
-			&copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.
+			<p class="copyright">&copy; <?php echo date("Y"); ?>, LivingSocial, Inc. or its affiliated companies. All rights reserved. <a href="https://www.livingsocial.com/terms">Terms of Use</a>. <a href="https://www.livingsocial.com/privacy_policy">Privacy Policy</a>.</p>
 		</div>
 		
 	</footer>

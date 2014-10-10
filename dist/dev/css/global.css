@@ -79,7 +79,8 @@ a:focus {
   outline: thin dotted; }
 
 a:active, a:hover {
-  outline: 0; }
+  outline: 0;
+  text-decoration: underline; }
 
 /* ==========================================================================
    Typography
@@ -327,7 +328,7 @@ body {
   font-family: ProximaNovaSoft, "Helvetica Neue", Helvetica, Arial, sans; }
 
 a {
-  color: #5fb8dd; }
+  color: #0088cc; }
 
 /* 
 =============================================================================
@@ -499,17 +500,18 @@ Top Bar
       float: left; } }
   .logo-main a {
     display: inline-block;
-    width: 100px;
-    height: 30px; }
+    width: 132px;
+    height: 48px; }
   .logo-main img {
     display: inline-block;
     text-align: center; }
 
 .nav-main {
-  padding-top: 18px; }
+  padding-top: 0px; }
   @media only screen and (min-width: 640px) {
     .nav-main {
-      float: right; } }
+      float: right;
+      padding-top: 32px; } }
   .nav-main ul {
     text-align: center; }
   .nav-main li {
@@ -544,6 +546,13 @@ Hero
 =============================================================================
 Job Search
 ========================================================================== */
+.search-wrap {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1.5em;
+  position: relative; }
+
 .jobs-search {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.5);
@@ -556,22 +565,67 @@ Job Search
     padding: 0.5em 1em;
     border-radius: 20px;
     -webkit-appearance: none;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
-    margin: 0 5px;
-    cursor: pointer; }
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden; }
+    @media only screen and (min-width: 500px) {
+      .jobs-search select {
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5); } }
+  .jobs-search .select-wrap {
+    position: relative;
+    display: block;
+    width: 75%;
+    float: left;
+    margin: 0 0 10px; }
+    @media only screen and (min-width: 500px) {
+      .jobs-search .select-wrap {
+        margin: 0 9px;
+        width: 170px; } }
+    @media only screen and (min-width: 640px) {
+      .jobs-search .select-wrap {
+        width: 232px; } }
+    .jobs-search .select-wrap:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #f0812b;
+      position: absolute;
+      right: 16px;
+      top: 16px; }
   .jobs-search button {
     background-color: #00ccf0;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00ccf0), color-stop(100%, #00aed3));
     background-image: -webkit-linear-gradient(#00ccf0, #00aed3);
     background-image: linear-gradient(#00ccf0, #00aed3);
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.75);
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.75);
     -webkit-appearance: none;
     border: none;
-    width: 37px;
-    height: 37px;
-    margin-left: 5px;
-    color: #fff; }
+    color: #fff;
+    padding: 0;
+    position: absolute;
+    right: 1.5em;
+    top: 0;
+    width: 18%;
+    height: 86px; }
+    @media only screen and (min-width: 500px) {
+      .jobs-search button {
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.75);
+        float: left;
+        border-radius: 50%;
+        width: 37px;
+        height: 37px;
+        margin-left: 9px;
+        position: static; } }
+    .jobs-search button .icon {
+      font-size: 18px; }
+      @media only screen and (min-width: 500px) {
+        .jobs-search button .icon {
+          font-size: 10px; } }
 
 /* The greys */
 /* Borders */
@@ -609,6 +663,17 @@ Main Footer Container
         padding-right: 0; }
         .site-footer .column:first-child {
           margin-right: 0; } }
+  .site-footer .copyright {
+    font-size: 12px;
+    font-size: 1.2rem;
+    color: #d4d1e7;
+    color: rgba(255, 255, 255, 0.75); }
+    .site-footer .copyright a {
+      color: #d4d1e7;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: underline; }
+      .site-footer .copyright a:hover {
+        text-decoration: none; }
 
 /* 
 =============================================================================
@@ -650,7 +715,8 @@ Site Summary
   color: #fff;
   text-align: center; }
   .site-summary a {
-    font-weight: bold; }
+    font-weight: bold;
+    color: #5fb8dd; }
   .site-summary p {
     font-size: 16px;
     font-size: 1.6rem; }
@@ -679,10 +745,10 @@ THE VARIABLES
 Homepage Modules
 ========================================================================== */
 .module {
-  padding: 25px 0; }
+  padding: 20px 0; }
   @media only screen and (min-width: 640px) {
     .module {
-      padding: 50px 0; } }
+      padding: 25px 0; } }
 
 .module__intro {
   text-align: center;
@@ -691,7 +757,8 @@ Homepage Modules
     font-size: 32px;
     font-size: 3.2rem;
     font-weight: normal;
-    color: #555555; }
+    color: #555555;
+    padding: 0; }
   .module__intro p {
     font-size: 16px;
     font-size: 1.6rem;
@@ -992,23 +1059,76 @@ Values List
 =============================================================================
 THE VARIABLES
 ========================================================================== */
+/* 
+=============================================================================
+THE LIST
+========================================================================== */
 .office-locations-list {
-  width: 34.04255%;
-  float: left; }
+  text-align: center; }
+  @media only screen and (min-width: 640px) {
+    .office-locations-list {
+      width: 48.93617%;
+      float: left;
+      text-align: left; } }
+  @media only screen and (min-width: 800px) {
+    .office-locations-list {
+      width: 34.04255%; } }
   .office-locations-list h3 {
     font-size: 28px;
     font-size: 2.8rem;
     color: #544aa1;
-    font-weight: normal; }
+    font-weight: normal;
+    margin-bottom: 0.5em; }
 
 .locations-list li {
   font-size: 16px;
-  font-size: 1.6rem;
-  border-bottom: 1px dotted #e1e1e1;
-  padding: 0.5em; }
+  font-size: 1.6rem; }
+  @media only screen and (min-width: 640px) {
+    .locations-list li {
+      border-bottom: 1px dotted #e1e1e1; } }
+  .locations-list li a {
+    padding: 0.5em 0;
+    display: block; }
   .locations-list li .count {
     font-size: 0.875em;
     color: #aaaaaa; }
+
+/* 
+=============================================================================
+IMAGES
+========================================================================== */
+.office-locations-images {
+  position: relative;
+  margin-bottom: 3em; }
+  @media only screen and (min-width: 640px) {
+    .office-locations-images {
+      float: right;
+      width: 48.93617%; } }
+  @media only screen and (min-width: 800px) {
+    .office-locations-images {
+      width: 59.57447%; } }
+
+.location-map {
+  position: relative;
+  z-index: 5;
+  display: block; }
+  .location-map img {
+    display: block;
+    width: 100%;
+    height: auto; }
+  .location-map.us-locations {
+    width: 80%; }
+  .location-map.europe-locations {
+    position: absolute;
+    top: 0;
+    z-index: 4;
+    width: 40%;
+    right: 0; }
+  .location-map .mask {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 90%; }
 
 /* The greys */
 /* Borders */
@@ -1038,8 +1158,14 @@ PERKS LIST DETAILED
   .perks-list-detailed:after {
     clear: both; }
   .perks-list-detailed li {
-    padding: 0 5.875% 5em 17.02128%;
+    padding: 0 5.875% 1em 18.61702%;
     position: relative; }
+    @media only screen and (min-width: 500px) {
+      .perks-list-detailed li {
+        padding: 0 5.875% 1em 14.3617%; } }
+    @media only screen and (min-width: 640px) {
+      .perks-list-detailed li {
+        padding: 0 5.875% 1em 14.68085%; } }
     @media only screen and (min-width: 800px) {
       .perks-list-detailed li {
         float: left;
@@ -1047,12 +1173,21 @@ PERKS LIST DETAILED
         padding: 0 5.875% 2.5em 8.51064%; } }
   .perks-list-detailed .icon {
     position: absolute;
-    top: 0.3em;
+    top: 2.5em;
     left: 0;
     font-size: 7px; }
     @media only screen and (min-width: 500px) {
       .perks-list-detailed .icon {
-        font-size: 0.5em; } }
+        font-size: 0.5em;
+        top: 1.75em; } }
+    @media only screen and (min-width: 640px) {
+      .perks-list-detailed .icon {
+        font-size: 0.75em;
+        top: 1.5em; } }
+    @media only screen and (min-width: 800px) {
+      .perks-list-detailed .icon {
+        font-size: 0.5em;
+        top: 1.75em; } }
   .perks-list-detailed h3 {
     font-size: 20px;
     font-size: 2rem;
@@ -1155,7 +1290,8 @@ Job Listing Summary
     margin: 1px 0;
     position: relative; }
     .job-listing .job-listing-link:hover {
-      background: #eaf4f9; }
+      background: #eaf4f9;
+      text-decoration: none; }
     @media only screen and (min-width: 800px) {
       .job-listing .job-listing-link {
         display: table;
@@ -1168,14 +1304,15 @@ Job Listing Summary
       display: table-cell;
       vertical-align: middle;
       width: 55.55555%; } }
-  .job-listing .job-location {
+  @media only screen and (min-width: 800px) {
+    .job-listing .job-location {
+      display: table-cell;
+      vertical-align: middle; } }
+  .job-listing .job-location p {
     font-size: 12px;
     font-size: 1.2rem;
-    color: #909090; }
-    @media only screen and (min-width: 800px) {
-      .job-listing .job-location {
-        display: table-cell;
-        vertical-align: middle; } }
+    color: #909090;
+    padding: 0; }
   .job-listing .additional-job-info {
     position: absolute;
     right: 0;
@@ -1214,12 +1351,12 @@ Job Listing Summary
   font-size: 10px; }
 
 .icon:before {
-  content: ' ';
+  content: "";
   vertical-align: middle;
   display: inline-block;
   background-image: url("../svg/sprite.svg");
   background-repeat: no-repeat;
-  background-size: 9.4em 86.6em; }
+  background-size: 9.4em 89.1em; }
 
 .no-svg .icon:before {
   background-image: url("../svg/sprite.png"); }
@@ -1274,8 +1411,13 @@ Job Listing Summary
   width: 9.4em;
   height: 9.4em; }
 
-.surprise-and-delight:before {
+.search:before {
   background-position: 0em -77.2em;
+  width: 2.41em;
+  height: 2.41em; }
+
+.surprise-and-delight:before {
+  background-position: 0em -79.7em;
   width: 9.4em;
   height: 9.4em; }
 

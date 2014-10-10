@@ -143,7 +143,7 @@ function add_custom_taxonomies() {
     ),
     // Control the slugs used for this taxonomy
     'rewrite' => array(
-      'slug' => 'departments', // This controls the base slug that will display before each term
+      'slug' => 'status', // This controls the base slug that will display before each term
       'with_front' => false, // Don't display the category base before "/locations/"
       'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
     ),
@@ -157,7 +157,7 @@ function theme_columns($theme_columns) {
         'cb' => '<input type="checkbox" />',
         'name' => __('Name'),
         'header_icon' => '',
-//      'description' => __('Description'),
+        'description' => __('Description'),
         'slug' => __('Slug'),
         'posts' => __('Posts')
         );
@@ -177,7 +177,7 @@ Department/Location List for Search
 
 ======================================================================================================================== */
 function custom_taxonomy_dropdown( $taxonomy ) {
-	$terms = get_terms( $taxonomy );
+	$terms = get_terms( $taxonomy, array( 'hide_empty' => 0 ) );
 	if ( $terms ) {
 		printf( '<select name="%s" class="postform">', esc_attr( $taxonomy ) );
 		printf( '<option value="">all '.$taxonomy.'s </option>');
@@ -188,13 +188,14 @@ function custom_taxonomy_dropdown( $taxonomy ) {
 	}
 }
 
+
 /* ========================================================================================================================
 
 Location List HP
 
 ======================================================================================================================== */
 function location_list( $taxonomy ) {
-	$terms = get_terms( $taxonomy );
+	$terms = get_terms( $taxonomy, array( 'hide_empty' => 0 ) );
 	if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
 	    $count = count($terms);
 	    $i=0;

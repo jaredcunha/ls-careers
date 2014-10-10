@@ -14,6 +14,14 @@
 
 		<!-- CSS -->
 		<link rel="stylesheet" href="/wp-content/themes/ls-careers/dist/prod/css/global.css">
+
+		<!--[if lt IE 9]>
+			<script src="/wp-content/themes/ls-careers/dist/prod/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!--[if lte IE 9]>
+			<script src="/wp-content/themes/ls-careers/dist/prod/js/respond.js"></script>
+		<![endif]-->
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>

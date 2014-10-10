@@ -9,8 +9,14 @@ PERKS LIST DETAILED
 	@include clearfix;
 	margin: 1em 0;
 	li {
-		padding: 0 5.875% 5em $grid_2of12cols + $gutterWidth;
+		padding: 0 5.875% 1em $grid_2of12cols + $gutterWidth*1.75;
 		position: relative;
+		@include respond-to(expansionA__minor) {
+			padding: 0 5.875% 1em $grid_2of12cols - $gutterWidth*.25;
+		}
+		@include respond-to(expansionA) {
+			padding: 0 5.875% 1em $grid_2of12cols - $gutterWidth*.1;
+		}
 		@include respond-to(expansionB) {
 			float: left;
 			width: 50%;
@@ -19,11 +25,20 @@ PERKS LIST DETAILED
 	}
 	.icon {
 		position: absolute;
-		top: .3em;
+		top: 2.5em;
 		left: 0;
 		font-size: 7px;
 		@include respond-to(expansionA__minor) {
 			font-size: .5em;
+			top: 1.75em;
+		}
+		@include respond-to(expansionA) {
+			font-size: .75em;
+			top: 1.5em;
+		}
+		@include respond-to(expansionB) {
+			font-size: .5em;
+			top: 1.75em;
 		}
 	}
 	h3 {

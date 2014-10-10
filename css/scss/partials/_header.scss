@@ -27,8 +27,8 @@ Top Bar
 	}
 	a {
 		display: inline-block;
-		width: 100px;
-		height: 30px;
+		width: 132px;
+		height: 48px;
 	}
 	img {
 		display: inline-block;
@@ -37,9 +37,10 @@ Top Bar
 }
 
 .nav-main {
-	padding-top: 18px;
+	padding-top: 0px;
 	@include respond-to(expansionA) {
 		float: right;
+		padding-top: 32px;
 	}
 	ul {
 		text-align: center;
@@ -79,6 +80,14 @@ Hero
 =============================================================================
 Job Search
 ========================================================================== */
+.search-wrap {
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 1.5em;
+	position: relative;
+}
+
 .jobs-search {
 	@include rgba_fallback('background-color', rgba(0,0,0, 0.5), black);
 	@include rem_units(font-size, 1.6);
@@ -89,19 +98,67 @@ Job Search
 		padding: .5em 1em;
 		border-radius: 20px;
 		-webkit-appearance: none;
-		box-shadow: 0 0 0 4px rgba(255,255,255,.5);
-		margin: 0 5px;
+		box-shadow: 0 0 0 2px rgba(255,255,255,.5);
+		width: 100%;
 		cursor: pointer;
+		overflow: hidden;
+		@include respond-to(expansionA__minor) {
+			box-shadow: 0 0 0 4px rgba(255,255,255,.5);
+		}
+	}
+	.select-wrap {
+		position: relative;
+		display: block;
+		width: 75%;
+		float: left;
+		margin: 0 0 10px;
+		@include respond-to(expansionA__minor) {
+			margin: 0 9px;
+			width: 170px;
+		}
+		@include respond-to(expansionA) {
+			width: 232px;
+		}
+		&:after {
+			content: "";
+			display: block;
+			width: 0; 
+			height: 0; 
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 5px solid $clementine;
+			position: absolute;
+			right: 16px;
+			top: 16px;
+		}
 	}
 	button {
 		@include linear-gradient(#00ccf0,#00aed3);
-		border-radius: 50%;
-		box-shadow: 0 0 0 4px rgba(255,255,255,.5), inset 0 1px 1px rgba(255,255,255,.75);
+		border-radius: 4px;
+		box-shadow: 0 0 0 2px rgba(255,255,255,.5), inset 0 1px 1px rgba(255,255,255,.75);
 		-webkit-appearance: none;
 		border: none;
-		width: 37px;
-		height: 37px;
-		margin-left: 5px;
 		color: #fff;
+		padding: 0;
+		position: absolute;
+		right: 1.5em; 
+		top: 0;
+		width: 18%;
+		height: 86px;
+		@include respond-to(expansionA__minor) {
+			box-shadow: 0 0 0 4px rgba(255,255,255,.5), inset 0 1px 1px rgba(255,255,255,.75);
+			float: left;
+			border-radius: 50%;
+			width: 37px;
+			height: 37px;
+			margin-left: 9px;
+			position: static;
+		}
+		.icon {
+			font-size: 18px;
+			@include respond-to(expansionA__minor) {
+				font-size: 10px;
+			}
+		}
 	}
 }

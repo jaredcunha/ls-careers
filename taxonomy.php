@@ -18,7 +18,7 @@
 
 <?php if ( have_posts() ): ?>
 
-Departments in Locations
+Departments in all
 
 <ol>
 <?php while ( have_posts() ) : the_post(); ?>

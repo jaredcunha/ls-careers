@@ -20,6 +20,7 @@ Job Listing Summary
 		position: relative;
 		&:hover {
 			background: #eaf4f9;
+			text-decoration: none;
 		}
 		@include respond-to(expansionB) {
 			display: table;
@@ -37,11 +38,15 @@ Job Listing Summary
 		}
 	}
 	.job-location {
-		@include rem_units(font-size, 1.2);
-		color: $medGrey;
+		
 		@include respond-to(expansionB) {
 			display: table-cell;
 			vertical-align: middle;
+		}
+		p {
+			@include rem_units(font-size, 1.2);
+			color: $medGrey;
+			padding: 0;	
 		}
 	}
 	.additional-job-info {

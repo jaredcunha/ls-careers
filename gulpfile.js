@@ -18,6 +18,8 @@
     svgmin = require('gulp-svgmin'),
     imagemin = require('gulp-imagemin'),
     svgSprite = require("gulp-svg-sprites"),
+    filter    = require('gulp-filter'),
+    svg2png   = require('gulp-svg2png'),
 
     // Stats and Things
     size = require('gulp-size');
@@ -54,7 +56,7 @@
     gulp.task('move', function(){
       gulp.src('js/polyfills/*.*')
       .pipe(gulp.dest('dist/prod/js'));
-      gulp.src('assets/svg/sprite.svg')
+      gulp.src('assets/svg/*')
       .pipe(gulp.dest('dist/prod/svg'));
     });
 
@@ -72,6 +74,9 @@
                  cssFile: "scss/_sprite.scss",
                  padding: 4
              }))
+            .pipe(gulp.dest("assets"))
+            .pipe(filter("**/*.svg"))
+            .pipe(svg2png())
             .pipe(gulp.dest("assets"));
     });
 

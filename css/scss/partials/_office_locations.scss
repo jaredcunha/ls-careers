@@ -1,24 +1,84 @@
 @import "bourbon/bourbon";
 @import "modules/all";
 
+/* 
+=============================================================================
+THE LIST
+========================================================================== */
 .office-locations-list {
-	width: $grid_4of12cols + $gutterWidth;
-	float: left;
+	text-align: center;
+	@include respond_to(expansionA) {
+		width: $grid_6of12cols;
+		float: left;
+		text-align: left;
+	}
+	@include respond_to(expansionB) {
+		width: $grid_4of12cols + $gutterWidth;
+	}
 	h3 {
 		@include rem_units(font-size, 2.8);
 		color: $prince;
 		font-weight: normal;
+		margin-bottom: .5em
 	}
 }
 
 .locations-list {
 	li {
 		@include rem_units(font-size, 1.6);
-		border-bottom: 1px dotted $borderLighttestGrey;
-		padding: .5em;
+		@include respond_to(expansionA) {
+			border-bottom: 1px dotted $borderLighttestGrey;
+		}
+		a {
+			padding: .5em 0;
+			display: block;	
+		}
 		.count {
 			font-size: .875em;
 			color: $mutedText;
 		}
+	}
+}
+
+/* 
+=============================================================================
+IMAGES
+========================================================================== */
+.office-locations-images {
+	position: relative;
+	margin-bottom: 3em;
+	@include respond_to(expansionA) {
+		float: right;
+		width: $grid_6of12cols;
+	}
+	@include respond_to(expansionB) {
+		width: $grid_7of12cols + $gutterWidth;
+	}
+}
+
+.location-map {
+	position: relative;
+	z-index: 5;
+	display: block;
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	&.us-locations{
+		width: 80%;
+	}
+	&.europe-locations{
+		position: absolute;
+		top: 0;
+		z-index:4;
+		width: 40%;
+		right: 0;
+	}
+	.mask {
+		overflow:hidden;
+		display: block;
+		width: 100%;
+		height: 90%;
 	}
 }

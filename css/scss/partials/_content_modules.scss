@@ -6,9 +6,9 @@
 Homepage Modules
 ========================================================================== */
 .module {
-	padding: 25px 0;
+	padding: 20px 0;
 	@include respond-to(expansionA) {
-		padding: 50px 0;
+		padding: 25px 0;
 	}
 }
 
@@ -19,6 +19,7 @@ Homepage Modules
 		@include rem_units(font-size, 3.2);
 		font-weight: normal;
 		color: $slate;
+		padding: 0;
 	}
 	p {
 		@include rem_units(font-size, 1.6);
