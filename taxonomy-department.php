@@ -30,14 +30,48 @@
 			</div>
 			
 
-			<div class="pad-horiz">
-				<?php if (function_exists('department-image'))
-					{
-					    $metaValue = get_terms_meta($category_id, $meta_key);
-					    echo $metaValue;
+			<div class="pad-horiz post-content">
+				<?php 
+					//Get the correct taxonomy ID by slug
+					$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+					//Get Taxonomy Meta
+					$saved_data = get_tax_meta($term->term_id,'display_image');
+					$metaboxtext = esc_attr( get_tax_meta($term->term_id,'display_image', true ) );
+					 if (strlen($metaboxtext)>0){ 
+					echo '<img class="feature-image" src="'.$saved_data['src'].'" />'; 
+					} else {
+					echo ''; 
 					}
 				?>
+
 				<?php echo category_description(); ?>
+
+				<?php 
+					//Get the correct taxonomy ID by slug
+					$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+					//Get Taxonomy Meta
+					$saved_data = get_tax_meta($term->term_id,'extra_links_header');
+					$metaboxtext = esc_attr( get_tax_meta($term->term_id,'extra_links_header', true ) );
+					if (strlen($metaboxtext)>0){ 
+						echo '<h2>' . $saved_data . '</h2>'; 
+					} else {
+						echo ''; 
+					}
+				?>
+
+				<?php 
+					//Get the correct taxonomy ID by slug
+					$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+					//Get Taxonomy Meta
+					$saved_data = get_tax_meta($term->term_id,'section_links');
+					$metaboxtext = esc_attr( get_tax_meta($term->term_id,'section_links', true ) );
+					if (strlen($metaboxtext)>0){ 
+						echo $saved_data; 
+					} else {
+						echo ''; 
+					}
+				?>
+
 			</div>
 			
 			

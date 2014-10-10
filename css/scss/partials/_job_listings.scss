@@ -5,6 +5,10 @@
 =============================================================================
 Job Listing Summary
 ========================================================================== */
+.jobs-list {
+	margin-top: 2em
+}
+
 .job-listing {
 	@include clearfix;
 	border-top: 1px solid $borderLighttestGrey;

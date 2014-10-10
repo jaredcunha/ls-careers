@@ -457,6 +457,11 @@ Reusable Items
       width: auto;
       display: inline-block; } }
 
+.feature-image {
+  display: block;
+  width: 100%;
+  margin: 0 0 1em; }
+
 /* The greys */
 /* Borders */
 /* ==========================================================================
@@ -813,23 +818,36 @@ Normal Page Modules
 
 .page-module-header + .post-content {
   padding-top: 2em; }
+.post-content ul li {
+  position: relative;
+  padding: 0.5em 0 0.5em 1em; }
+  .post-content ul li:before {
+    content: "";
+    border-radius: 50%;
+    display: block;
+    background: #262626;
+    width: 0.25em;
+    height: 0.25em;
+    position: absolute;
+    left: 0;
+    top: 1em; }
 
 /* 
 =============================================================================
 Sidebar Module
 ========================================================================== */
 @media only screen and (min-width: 640px) {
-  .sidebar-module .link-list {
+  .sidebar-module ul {
     font-size: 12px;
     font-size: 1.2rem; } }
 @media only screen and (min-width: 800px) {
-  .sidebar-module .link-list {
+  .sidebar-module ul {
     font-size: 15px;
     font-size: 1.5rem; } }
-.sidebar-module .link-list li {
+.sidebar-module ul li {
   position: relative;
   padding: 0.5em 0 0.5em 1em; }
-  .sidebar-module .link-list li:before {
+  .sidebar-module ul li:before {
     content: "";
     border-radius: 50%;
     display: block;
@@ -1270,6 +1288,9 @@ THE VARIABLES
 =============================================================================
 Job Listing Summary
 ========================================================================== */
+.jobs-list {
+  margin-top: 2em; }
+
 .job-listing {
   *zoom: 1;
   border-top: 1px solid #e1e1e1; }

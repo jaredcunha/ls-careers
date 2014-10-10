@@ -85,7 +85,24 @@ Normal Page Modules
 .post-content {
 	.page-module-header + & {
 		padding-top: 2em;
+	}
+	ul {
+		li {
+			position: relative;
+			padding: .5em 0 .5em 1em;
+			&:before {
+				content: "";
+				border-radius: 50%;
+				display: block;
+				background: $whale;
+				width: .25em;
+				height: .25em;
+				position: absolute;
+				left: 0;
+				top: 1em;
+			}
 		}
+	}
 }
 
 /* 
@@ -93,7 +110,7 @@ Normal Page Modules
 Sidebar Module
 ========================================================================== */
 .sidebar-module {
-	.link-list {
+	ul {
 		@include respond-to(expansionA) {
 			@include rem_units(font-size, 1.2);
 		}

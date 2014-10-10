@@ -40,7 +40,15 @@
 						</p>
 					</div>
 				</div>
-				<div class="post-content pad-horiz">	
+				<div class="post-content pad-horiz">
+					<?php
+						$terms = wp_get_post_terms( $post->ID, 'department');
+						foreach ($terms as $term){
+						   $term_id = $term->term_id;
+						   $saved_data = get_tax_meta($term_id,'display_image',true);
+							echo '<img src="'.$saved_data['src'].'">';
+						}
+					?>	
 					<?php the_content(); ?>			
 					<?php 
 					    $url = get_post_meta($post->ID, 'Apply Now Link', true); 
@@ -51,12 +59,38 @@
 					?>
 					 
 				</div>
-		
-
-
 			</article>
 		</div>
-
+		<div class="secondary-col">
+			<div class="sidebar-module">
+				<?php
+					$terms = wp_get_post_terms( $post->ID, 'department');
+					foreach ($terms as $term){
+					   $term_id = $term->term_id;
+					   $saved_data = get_tax_meta($term->term_id,'extra_links_header');
+						$metaboxtext = esc_attr( get_tax_meta($term->term_id,'extra_links_header', true ) );
+						if (strlen($metaboxtext)>0){ 
+							echo '<h2>' . $saved_data . '</h2>'; 
+						} else {
+							echo ''; 
+						}
+					}
+				?>
+				<?php
+					$terms = wp_get_post_terms( $post->ID, 'department');
+					foreach ($terms as $term){
+					   $term_id = $term->term_id;
+					   $saved_data = get_tax_meta($term->term_id,'section_links');
+						$metaboxtext = esc_attr( get_tax_meta($term->term_id,'section_links', true ) );
+						if (strlen($metaboxtext)>0){ 
+							echo $saved_data; 
+						} else {
+							echo ''; 
+						}
+					}
+				?>
+			</div>	
+		</div>
 	</div>
 </main>
 <?php endwhile; ?>
