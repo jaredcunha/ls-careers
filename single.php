@@ -46,7 +46,7 @@
 						foreach ($terms as $term){
 						   $term_id = $term->term_id;
 						   $saved_data = get_tax_meta($term_id,'display_image',true);
-							echo '<img src="'.$saved_data['src'].'">';
+							echo '<img class="feature-image" src="'.$saved_data['src'].'">';
 						}
 					?>	
 					<?php the_content(); ?>			
