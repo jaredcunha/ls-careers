@@ -97,11 +97,13 @@ Job Search
 		background: #fff;
 		padding: .5em 1em;
 		border-radius: 20px;
-		-webkit-appearance: none;
+		@include appearance(none);
 		box-shadow: 0 0 0 2px rgba(255,255,255,.5);
 		width: 100%;
 		cursor: pointer;
 		overflow: hidden;
+	    text-indent: 0.01px;
+	    text-overflow: '';
 		@include respond-to(expansionA__minor) {
 			box-shadow: 0 0 0 4px rgba(255,255,255,.5);
 		}

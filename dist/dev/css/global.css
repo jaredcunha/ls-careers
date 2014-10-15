@@ -570,10 +570,16 @@ Job Search
     padding: 0.5em 1em;
     border-radius: 20px;
     -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
     width: 100%;
     cursor: pointer;
-    overflow: hidden; }
+    overflow: hidden;
+    text-indent: 0.01px;
+    text-overflow: ''; }
     @media only screen and (min-width: 500px) {
       .jobs-search select {
         box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5); } }
