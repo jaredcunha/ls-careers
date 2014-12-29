@@ -67,12 +67,14 @@ Hero
 		@include rem_units(font-size, 4);
 		font-weight: normal;
 		color: #fff;
+		text-shadow: 0 0 100px rgba(0,0,0,.8);
 	}
 	.site-description {
 		@include rem_units(font-size, 2.2);
 		max-width: $grid_8of12cols;
 		margin: 0 auto;
 		padding: 0;
+		text-shadow: 0 0 50px rgba(0,0,0,.8);
 	}
 }
 
@@ -94,29 +96,31 @@ Job Search
 	text-align: center;
 	padding: 1em 0;
 	select {
-		background: #fff;
+		background: transparent;
 		padding: .5em 1em;
-		border-radius: 20px;
 		@include appearance(none);
-		box-shadow: 0 0 0 2px rgba(255,255,255,.5);
-		width: 100%;
+		width: 130%;
 		cursor: pointer;
 		overflow: hidden;
 	    text-indent: 0.01px;
-	    text-overflow: '';
-		@include respond-to(expansionA__minor) {
-			box-shadow: 0 0 0 4px rgba(255,255,255,.5);
-		}
+	    text-overflow: "";
+	    
+	    border: none;
 	}
 	.select-wrap {
 		position: relative;
 		display: block;
 		width: 75%;
 		float: left;
+		overflow-x: hidden;
 		margin: 0 0 10px;
+		border-radius: 20px;
+		background: #fff;
+		box-shadow: 0 0 0 2px rgba(255,255,255,.5);
 		@include respond-to(expansionA__minor) {
 			margin: 0 9px;
 			width: 170px;
+			box-shadow: 0 0 0 4px rgba(255,255,255,.5);
 		}
 		@include respond-to(expansionA) {
 			width: 232px;
@@ -161,6 +165,10 @@ Job Search
 			@include respond-to(expansionA__minor) {
 				font-size: 10px;
 			}
+		}
+		.text {
+			position: absolute;
+			left: -9999em;
 		}
 	}
 }

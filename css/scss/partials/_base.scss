@@ -127,6 +127,16 @@ Reusable Items
 		width: auto;
 		display: inline-block;
 	}
+	&:hover {
+		text-decoration: none;
+	}
+	&.btn-inverse {
+		color: $linkColor;
+		background: #fff;
+		box-shadow: none;
+		border: 0;
+		text-shadow: none;
+	}
 }
 
 .feature-image {

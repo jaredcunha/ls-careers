@@ -39,9 +39,7 @@
 
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
-  //remove_filter( 'the_content', 'wpautop' );
-
-  remove_filter( 'the_excerpt', 'wpautop' );
+  
 
 	/* ========================================================================================================================
 	

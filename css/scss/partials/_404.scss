@@ -1,0 +1,43 @@
+@import "bourbon/bourbon";
+@import "modules/all";
+
+/* 
+=============================================================================
+OVERRIDES FOR THE ERROR PAGE
+========================================================================== */
+.error404 {
+	background: $prince;
+	.hdr-main {
+		background: $honeycomb;
+		border-bottom: 1px solid;
+		@include rgba_fallback('border-color', rgba(255,255,255, 0.25), $honeycomb);
+		.logo-main {
+			@include respond-to(expansionA) {
+				text-align:center;
+				float: none;
+			}
+		}
+	}
+	.module {
+		background: $honeycomb;
+		text-align: center;
+	}
+	.site-footer {
+		margin-top: 0;
+	}
+	h1 {
+		@include rem_units(font-size, 3.5);
+		color: #fff;
+		padding: .25em;
+	}
+	p {
+		@include rem_units(font-size, 2.2);
+		color: #fff;
+		line-height: 1.2;
+		padding-top: 0;
+	}
+}
+
+.module__404 {
+	padding: 100px 0;
+}

@@ -1,0 +1,33 @@
+@import "bourbon/bourbon";
+@import "modules/all";
+
+.no-backgroundsize {
+	.ls-vaules-list li {
+		min-height: 0;
+		.icon {
+			display: none;
+		}
+	}
+	.perks-list-detailed li {
+		padding-left: 0;
+		.icon {
+			display: none;
+		}
+	}
+	.hdr-main {
+		position: relative;
+		background: $slushie url(/wp-content/themes/ls-careers/images/header-bg.png) no-repeat center top;
+		zoom: 1;
+		&.hdr-main--extended {
+			background: #d9d9d9;
+		}
+	}
+	.jobs-search button {
+		.text {
+			position: static;
+		}
+		.icon {
+			display: none;
+		}
+	}
+}

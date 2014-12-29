@@ -456,6 +456,14 @@ Reusable Items
     .btn {
       width: auto;
       display: inline-block; } }
+  .btn:hover {
+    text-decoration: none; }
+  .btn.btn-inverse {
+    color: #0088cc;
+    background: #fff;
+    box-shadow: none;
+    border: 0;
+    text-shadow: none; }
 
 .feature-image {
   display: block;
@@ -539,13 +547,15 @@ Hero
     font-size: 40px;
     font-size: 4rem;
     font-weight: normal;
-    color: #fff; }
+    color: #fff;
+    text-shadow: 0 0 100px rgba(0, 0, 0, 0.8); }
   .hero .site-description {
     font-size: 22px;
     font-size: 2.2rem;
     max-width: 65.95745%;
     margin: 0 auto;
-    padding: 0; }
+    padding: 0;
+    text-shadow: 0 0 50px rgba(0, 0, 0, 0.8); }
 
 /* 
 =============================================================================
@@ -566,33 +576,34 @@ Job Search
   text-align: center;
   padding: 1em 0; }
   .jobs-search select {
-    background: #fff;
+    background: transparent;
     padding: 0.5em 1em;
-    border-radius: 20px;
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
     -o-appearance: none;
     appearance: none;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-    width: 100%;
+    width: 130%;
     cursor: pointer;
     overflow: hidden;
     text-indent: 0.01px;
-    text-overflow: ''; }
-    @media only screen and (min-width: 500px) {
-      .jobs-search select {
-        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5); } }
+    text-overflow: "";
+    border: none; }
   .jobs-search .select-wrap {
     position: relative;
     display: block;
     width: 75%;
     float: left;
-    margin: 0 0 10px; }
+    overflow-x: hidden;
+    margin: 0 0 10px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); }
     @media only screen and (min-width: 500px) {
       .jobs-search .select-wrap {
         margin: 0 9px;
-        width: 170px; } }
+        width: 170px;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5); } }
     @media only screen and (min-width: 640px) {
       .jobs-search .select-wrap {
         width: 232px; } }
@@ -637,6 +648,9 @@ Job Search
       @media only screen and (min-width: 500px) {
         .jobs-search button .icon {
           font-size: 10px; } }
+    .jobs-search button .text {
+      position: absolute;
+      left: -9999em; }
 
 /* The greys */
 /* Borders */
@@ -1372,6 +1386,56 @@ Job Listing Summary
   .job-listing .status-part-time {
     color: #508395; }
 
+/* The greys */
+/* Borders */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+/* 
+=============================================================================
+OVERRIDES FOR THE ERROR PAGE
+========================================================================== */
+.error404 {
+  background: #544aa1; }
+  .error404 .hdr-main {
+    background: #e9ba26;
+    border-bottom: 1px solid;
+    border-color: #eecb5c;
+    border-color: rgba(255, 255, 255, 0.25); }
+    @media only screen and (min-width: 640px) {
+      .error404 .hdr-main .logo-main {
+        text-align: center;
+        float: none; } }
+  .error404 .module {
+    background: #e9ba26;
+    text-align: center; }
+  .error404 .site-footer {
+    margin-top: 0; }
+  .error404 h1 {
+    font-size: 35px;
+    font-size: 3.5rem;
+    color: #fff;
+    padding: 0.25em; }
+  .error404 p {
+    font-size: 22px;
+    font-size: 2.2rem;
+    color: #fff;
+    line-height: 1.2;
+    padding-top: 0; }
+
+.module__404 {
+  padding: 100px 0; }
+
 /* CSS from Vender Plugins */
 /* CSS Sprites */
 .icon {
@@ -1448,6 +1512,41 @@ Job Listing Summary
   width: 9.4em;
   height: 9.4em; }
 
+/* For Shame */
+/* The greys */
+/* Borders */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+.no-backgroundsize .ls-vaules-list li {
+  min-height: 0; }
+  .no-backgroundsize .ls-vaules-list li .icon {
+    display: none; }
+.no-backgroundsize .perks-list-detailed li {
+  padding-left: 0; }
+  .no-backgroundsize .perks-list-detailed li .icon {
+    display: none; }
+.no-backgroundsize .hdr-main {
+  position: relative;
+  background: #5fb8dd url(/wp-content/themes/ls-careers/images/header-bg.png) no-repeat center top;
+  zoom: 1; }
+  .no-backgroundsize .hdr-main.hdr-main--extended {
+    background: #d9d9d9; }
+.no-backgroundsize .jobs-search button .text {
+  position: static; }
+.no-backgroundsize .jobs-search button .icon {
+  display: none; }
+
 /*Keyframes are last */
 /* The greys */
 /* Borders */
@@ -1464,3 +1563,54 @@ Job Listing Summary
 =============================================================================
 THE VARIABLES
 ========================================================================== */
+/* And then there's print styles */
+/* The greys */
+/* Borders */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+@media print {
+  /* Hide these things */
+  @page {
+    margin: 0.5cm; }
+
+  /* Use black ink for type */
+  .secondary-col, .site-footer, .nav-main {
+    display: none !important; }
+  body {
+    color: black; }
+  img {
+    max-width: 500px; }
+  p a {
+    word-wrap: break-word; }
+  a {
+    color: black; }
+  .site-header {
+    background: #5fb8dd; }
+  .primary-col {
+    width: 100% !important; }
+    .primary-col img {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      border: 0; }
+  .post-content a:after {
+    content: " (" attr(href) ")";
+    font-size: 80%;
+    font-weight: normal; }
+  .post-content .btn {
+    color: black;
+    background: none;
+    padding: 0;
+    text-align: left;
+    border: 0; } }

@@ -21,7 +21,7 @@
 		<div class="search-wrap">       
 		   	<span class="select-wrap"><?php custom_taxonomy_dropdown( 'department' ); ?></span>
 		   	<span class="select-wrap"><?php custom_taxonomy_dropdown( 'location' ); ?></span>
-		   	<button type="submit" title="search"><span class="icon search"></span></button>
+		   	<button type="submit"><span class="text">go</span><span class="icon search"></span></button>
 	   	</div>
 	</form>
 </header>
@@ -104,7 +104,7 @@
 		<header class="module__intro">
 			<h2><?php the_block('Perks and Benefits Header',array('type' => 'one-liner','apply_filters' => false)) ?></h2>
 		</header>
-		<?php the_block('Office Photo') ?>
+		<p><?php the_block('Office Photo') ?></p>
 		<?php the_block('Perks - Detailed') ?>
 		<div class="perks-quick-list">
 			<?php the_block('Perks - Quick List') ?>
