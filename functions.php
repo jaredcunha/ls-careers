@@ -49,6 +49,7 @@
 	
 	======================================================================================================================== */
 
+	require_once('custom-post-types/careers.php');
 
 
 	/* ========================================================================================================================
@@ -162,7 +163,7 @@ function theme_columns($theme_columns) {
     return $new_columns;
 }
 
-add_action( 'init', 'add_custom_taxonomies', 0 );
+//add_action( 'init', 'add_custom_taxonomies', 0 );
 
 
 

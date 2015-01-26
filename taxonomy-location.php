@@ -103,6 +103,7 @@
 				<h2>departments</h2>
 				<?php $terms = apply_filters( 'taxonomy-images-get-terms', '', array(
 				    'taxonomy' => 'department',
+					'having_images' => false,
 				    'term_args' => array(
 						'hide_empty' => 0, ## change to 0 to show empty categories 
 						),
