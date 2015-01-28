@@ -51,7 +51,7 @@
 					?>	
 					<?php the_content(); ?>			
 					<?php 
-					    $url = get_post_meta($post->ID, 'Apply Now Link', true); 
+					    $url = get_post_meta($post->ID, 'apply_now_link', true); 
 
 						if ($url) {
 						    echo "<div class='apply-now'><p><a href='$url' class='btn'>Apply Now</a></p></div>";
