@@ -121,11 +121,12 @@ class Jobvite_Career_Sync {
 		/* Initialize Formatted Career Data Array */
 		$career_data = array();
 		/* Loop Jobs */
+		$counter = 0;
 		foreach($xml->job as $job){
 			/* Cast ID as string */
 			$id = (string) $job->id;
 			/* Add ID to Jobvite ID Array */
-			$current_jobvite_ids[] = $id;
+			$current_jobvite_ids[ $counter ] = $id;
 			/* Add Data to Formatted Career Data Array */
 			$career_data[ $id ]['id'] = $id;
 			$career_data[ $id ]['date'] = strtotime($job->date);
@@ -140,6 +141,7 @@ class Jobvite_Career_Sync {
 			$career_data[ $id ]['status']['slug'] = $this->format_taxonomy_slug( $job->jobtype );
 			$career_data[ $id ]['department']['title'] = (string) $job->category;
 			$career_data[ $id ]['department']['slug'] = $this->format_taxonomy_slug( $job->category );
+			$counter++;
 		}
 		$published_wp_careers = $this->career_post_statuses( $current_jobvite_ids );
 		foreach( $career_data as $jobvite_id => $data ) {
