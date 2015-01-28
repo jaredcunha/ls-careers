@@ -539,6 +539,7 @@ function career_custom_submenu_page_callback() {
 		<p>Automatic taxonomies (e.g. departments/statuses/locations) are generated from the category/jobtype/location fields from Jobvite.</p>
 		<p>At times, you may want several taxonomies from Jobvite to display in just one taxonomy on the Careers site. For example, "Sales" and "National Sales" may be better suited to group under "Sales &amp; Business Development."</p>
 		<p>To achieve this, go to Careers->Options in the left navigation, and choose existing Jobvite taxonomies to redirect. It will affect all current and future careers pulled from Jobvite with that matching taxonomy.</p>
+		<p>Note that you cannot delete any Jobvite categories that are being redirected, should you choose to use this feature.</p>
 		
 		<h3>Developer Notes</h3>
 		<p>Files that power this system are 'custom-post-types/careers.php' and 'classes/class-jobvite.php'.</p>
