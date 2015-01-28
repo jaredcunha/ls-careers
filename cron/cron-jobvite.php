@@ -8,7 +8,7 @@
  * 
  * @package LivingSocial_Careers
  */
-//  Example: */15 * * * * /path/to/wp-content/themes/ls-careers/cron/jobvite.php
+//  Example: */15 * * * * /path/to/wp-content/themes/ls-careers/cron/cron-jobvite.php
 require_once( '../classes/class-jobvite.php' );
 $run = new Jobvite_Career_Sync();
 exit();
