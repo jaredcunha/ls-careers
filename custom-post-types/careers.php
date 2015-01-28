@@ -35,7 +35,7 @@ function add_careers_taxonomies( ) {
 		// Control the slugs used for this taxonomy
 		'rewrite' => array(
 			// This controls the base slug that will display before each term
-			'slug'         => 'careers/location', 
+			'slug'         => 'careers/locations', 
 			// Don't display the category base before "/location/"
 			'with_front'   => false, 
 			'hierarchical' => true 
@@ -62,34 +62,34 @@ function add_careers_taxonomies( ) {
 		// Control the slugs used for this taxonomy
 		'rewrite' => array(
 			// This controls the base slug that will display before each term
-			'slug'         => 'careers/department', 
+			'slug'         => 'careers/departments', 
 			// Don't display the category base before "/department/"
 			'with_front'   => false, 
 			'hierarchical' => true 
 		),
 	));
-	// Add new "Status" taxonomy to Career post type
+	// Add new "Status" taxonomy to Career post type. UI and URLs use 'type' instead.
 	register_taxonomy( 'status', 'career', array(
 		// Hierarchical taxonomy (like categories)
 		'hierarchical' => true,
 		// This array of options controls the labels displayed in the WordPress Admin UI
 		'labels' => array(
-			'name' => _x( 'Statuses', 'taxonomy general name' ),
-			'singular_name' => _x( 'Status', 'taxonomy singular name' ),
-			'search_items' =>  __( 'Search Status' ),
-			'all_items' => __( 'All Status' ),
-			'parent_item' => __( 'Parent Status' ),
-			'parent_item_colon' => __( 'Parent Status:' ),
-			'edit_item' => __( 'Edit Status' ),
-			'update_item' => __( 'Update Status' ),
-			'add_new_item' => __( 'Add New Status' ),
-			'new_item_name' => __( 'New Status Name' ),
-			'menu_name' => __( 'Statuses' ),
+			'name' => _x( 'Career Types', 'taxonomy general name' ),
+			'singular_name' => _x( 'Career Type', 'taxonomy singular name' ),
+			'search_items' =>  __( 'Search Career Types' ),
+			'all_items' => __( 'All Career Types' ),
+			'parent_item' => __( 'Parent Career Type' ),
+			'parent_item_colon' => __( 'Parent Career Type:' ),
+			'edit_item' => __( 'Edit Career Type' ),
+			'update_item' => __( 'Update Career Type' ),
+			'add_new_item' => __( 'Add New Career Type' ),
+			'new_item_name' => __( 'New Career Type Name' ),
+			'menu_name' => __( 'Types' ),
 		),
 		// Control the slugs used for this taxonomy
 		'rewrite' => array(
 			// This controls the base slug that will display before each term
-			'slug' => 'careers/status', 
+			'slug' => 'careers/type', 
 			// Don't display the category base before "/status/"
 			'with_front' => false, 
 			'hierarchical' => false
@@ -133,7 +133,7 @@ function add_careers_post_type( ) {
 			'delete_published_posts' => false
 		),
 		'map_meta_cap'		 => true,
-		'has_archive'        => false,
+		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => null,
 		'supports'			 => array('title','author')
@@ -163,12 +163,6 @@ function add_careers_post_status() {
 
 /**
  * Creates field so Jobvite slug for taxonomies is visible from the admin side of WordPress
- *
- * @global type $varname Description.
- *
- * @param type $var Description.
- * @param type $var Optional. Description.
- * @return type Description.
  */
 add_action( 'department_add_form_fields', 'career_taxonomy_add_new_meta_field', 10, 2 );
 add_action( 'status_add_form_fields', 'career_taxonomy_add_new_meta_field', 10, 2 );
@@ -318,8 +312,6 @@ function career_info_box( ) {
 		$terms = get_the_terms( $post->ID, $taxonomy_slug );
 		$taxonomy_data[ $taxonomy_slug ] = $terms;
 	}
-	//$existing_taxonomies[ $taxonomy ];
-	// Even though we arent'
 	?>
 	<script>
 	jQuery(document).ready(function ($) {
@@ -422,6 +414,9 @@ function edit_career_columns( $columns ) {
 		'cb' => '<input type="checkbox" />',
 		'title' => 'Career',
 		'date' => __( 'Date' ),
+		'location' => __( 'Location' ),
+		'department' => __( 'Department' ),
+		'status' => __( 'Status' ),
 		'livingsocial_url' => __( 'LivingSocial Career Page' ),
 		'apply_url' => __( 'Jobvite Apply URL' )
 	);
@@ -439,10 +434,45 @@ function edit_career_columns( $columns ) {
  */
 add_action( 'manage_career_posts_custom_column', 'manage_career_columns', 10, 2 );
 function manage_career_columns( $column, $post_id ) {
+	$post_type = get_post_type( $post_id );
+	// get career taxonomies
+	$taxonomies = get_object_taxonomies( $post_type, 'objects' );
+	//Collect current taxonomies (location/department/status)
+	$taxonomy_data = array();
+	foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
+		// get the terms related to career post
+		$terms = get_the_terms( $post_id, $taxonomy_slug );
+		$taxonomy_data[ $taxonomy_slug ] = $terms;
+	}
 	switch( $column ) {
+		case 'location' :
+		foreach( $taxonomy_data['location'] as $term ) {
+			echo ( $c > 0 ) ? ',' : '';
+			$c++;
+			echo '<a href="'.get_term_link( $term->slug, 'location' ).'" target="_blank">'.$term->name.'</a>';
+		}
+		break;
+		case 'department' :
+		foreach( $taxonomy_data['department'] as $term ) {
+			echo ( $c > 0 ) ? ',' : '';
+			$c++;
+			echo '<a href="'.get_term_link( $term->slug, 'department' ).'" target="_blank">'.$term->name.'</a>';
+		}
+		break;
+		case 'status' :
+		foreach( $taxonomy_data['status'] as $term ) {
+			echo ( $c > 0 ) ? ',' : '';
+			$c++;
+			echo '<a href="'.get_term_link( $term->slug, 'status' ).'" target="_blank">'.$term->name.'</a>';
+		}
+		break;
 		case 'apply_url' :
-		$url = get_post_meta( $post_id, 'apply_now_link', true );
-		echo '<a href="'.$url.'" target="_blank">View on Jobvite</a>';
+		if( 'removed_from_jobvite' == get_post_status( $post_id ) ) {
+			echo 'Hidden from public. No longer on Jobvite.';
+		} else {
+			$url = get_post_meta( $post_id, 'apply_now_link', true );
+			echo '<a href="'.$url.'" target="_blank">View on Jobvite</a>';			
+		}
 		break;
 		case 'livingsocial_url' :
 		if( 'removed_from_jobvite' == get_post_status( $post_id ) ) {
@@ -499,10 +529,32 @@ function career_custom_submenu_page_callback() {
 		<h3>Changing Department/Status/Location Titles &amp; URL slugs</h3>
 		<p>This system automatically creates department/status/location taxonomies based on information pulled from Jobvite. However, these may not always be ideal. You can edit both the title and URL slug for any category created by Jobvite, and it will use that information instead in WordPress for existing and future careers.</p>
 		<p>To edit the title or URL slug for a taxonomy, look under Careers in the left navigation column for the taxonomy type you want to edit, find the taxonomy (e.g. Dallas) and modify the top two fields (Name/Slug).</p>
+		
+		<h3>Changing Inidividual Career URL slugs</h3>
+		<p>WordPress by default creates URL slugs based on the title of a post; in this case, the career being offered. Since multiple careers may have the same title, this means some entries may have '-' followed by a number appended to the end of the URL. This is by design to avoid duplicates and confusing links.</p>
+		<p>To edit the slug for an individual career, navigate to the edit screen for it and look under the title. There is a button here that will let you change the URL. Note that it still will not allow duplicate entries, so if it finds another career with the same URL, it will again add a hyphen with a number.</p>
+		
+		
+		<h3>Redirecting Jobvite Departments/Statuses/Locations</h3>
+		<p>Automatic taxonomies (e.g. departments/statuses/locations) are generated from the category/jobtype/location fields from Jobvite.</p>
+		<p>At times, you may want several taxonomies from Jobvite to display in just one taxonomy on the Careers site. For example, "Sales" and "National Sales" may be better suited to group under "Sales &amp; Business Development."</p>
+		<p>To achieve this, go to Careers->Options in the left navigation, and choose existing Jobvite taxonomies to redirect. It will affect all current and future careers pulled from Jobvite with that matching taxonomy.</p>
+		
 		<h3>Developer Notes</h3>
 		<p>Files that power this system are 'custom-post-types/careers.php' and 'classes/class-jobvite.php'.</p>
 		<p>The cron script can be found at '/cron/cron-jobvite.php'.</p>
-		<p>To set up the automation of pulling data from Jobvite, you will need to create a cron job that runs <strong>/path/to</strong>/wp-content/themes/ls-careers/cron/jobvite.php at intervals you decide, no more frequently than five minutes. As several requests are made to the WordPress database during syncing, more frequency will impact server load.</p><p>If you need to manually sync from Jobvite, you can click <a href="<?php echo get_theme_root_uri(); ?>/ls-careers/cron/cron-jobvite.php" target="_blank">here</a>. Let the page finish loading; no text will be displayed.</p>
+		<p>To set up the automation of pulling data from Jobvite, you will need to create a cron job that runs <strong>/path/to</strong>/wp-content/themes/ls-careers/cron/jobvite.php at intervals you decide, no more frequently than 5 minutes. As several requests are made to the WordPress database during syncing, more frequency will impact server load.</p><p>If you need to manually sync from Jobvite, you can click <a href="<?php echo get_theme_root_uri(); ?>/ls-careers/cron/cron-jobvite.php" target="_blank">here</a>. Let the page finish loading; no text will be displayed.</p>
+		
+		<h3>Installation</h3>
+		<ol>
+			<li>If the ls-careers theme is active, first go to Settings->Permalinks to refresh new rules for the new post type/taxonomy structure.</li>
+			<li>Click <a href="<?php echo get_theme_root_uri(); ?>/ls-careers/cron/cron-jobvite.php" target="_blank">here</a> and let the page finish loading. It will not display text, but it will manually trigger the first Jobvite sync, to populate WordPress with data.</li>
+			<li>After the first sync, "Options" will be functional in the left nav.</li>
+			<li>Configure the cron job to run at set intervals.</li>
+			<li>Some taxonomies may need grouped or redirected. Go <a href="edit.php?post_type=career&amp;page=career-options-page">here</a> to manage redirection.</li>
+		</ol>
+		
+		
 	</div>
 	<?php
 }
@@ -521,6 +573,10 @@ function career_options_page_callback() {
      }
      // Read in existing option value from database
      $taxonomy_map = get_option( 'jobvite_taxonomy_map' );
+	 if( ! is_array($taxonomy_map) ) {
+		 // First time use.
+		 $taxonomy_map = array();
+	 }
      // See if the user is saving changes
      // If they did, this hidden field will be set to 'Y'
      if( isset($_POST[ 'career_submit_hidden' ]) && 'Y' == $_POST[ 'career_submit_hidden' ] ) {
@@ -703,14 +759,14 @@ function career_options_page_callback() {
 			 </div>
 
  <?php
- }
+}
  
  /**
   * Updates taxonomies from the Options page following submission.
   *
   * @param array $taxonomy_map Jobvite slugs and the terms they are to be mapped to.
   */
- function update_career_taxonomies( $taxonomy_map ) {
+function update_career_taxonomies( $taxonomy_map = array() ) {
 	$taxonomy_types = array(
 		'department',
 		'location',
@@ -748,5 +804,5 @@ function career_options_page_callback() {
 			}
 		}
 	}	 	 
- }
-
+}
+ 

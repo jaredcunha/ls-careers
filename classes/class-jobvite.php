@@ -59,6 +59,13 @@ class Jobvite_Career_Sync {
 			$xml = $this->load_xml( $this->xml_source );
 			$this->jobvite_term_meta = $this->fetch_terms();
 			$this->taxonomy_overrides = get_option( 'jobvite_taxonomy_map' );
+			if( ! array( $this->taxonomy_overrides ) ) {
+				$this->taxonomy_overrides = array();
+				// First time code.
+				$this->taxonomy_overrides['location'] = array();
+				$this->taxonomy_overrides['status'] = array();
+				$this->taxonomy_overrides['department'] = array();
+			}
 			$this->process_jobvite( $xml );
 		}
 	}
@@ -89,6 +96,10 @@ class Jobvite_Career_Sync {
 	protected static function fetch_terms ( ) {
 		$wp_terms = array();
 		$terms = get_terms( array( 'location', 'department', 'status' ), array( 'hide_empty' => false ) );
+		// Establish arrays. Not all terms have a jobvite_slug.
+		$wp_terms['location']['jobvite_slug'] = array();
+		$wp_terms['department']['jobvite_slug'] = array();
+		$wp_terms['status']['jobvite_slug'] = array();
 		foreach ( $terms as $term ) {
 			$term_custom = get_option( "taxonomy_$term->term_id" );
 			if( isset( $term_custom['jobvite_slug'] ) ) {
@@ -287,7 +298,17 @@ class Jobvite_Career_Sync {
 			);
 			// Add Career to WordPress
 			$wp_id = wp_insert_post( $new_career, true );
-			foreach($taxonomy_ids as $taxonomy => $taxonomy_id){	
+			//Check for overrides
+			
+			foreach($taxonomy_ids as $taxonomy => $taxonomy_id){
+				$jobvite_taxonomy_slug = '';
+				if( ! empty( $this->taxonomy_overrides[ $taxonomy ] ) && array_key_exists( $career_data[ $taxonomy ]['slug'], $this->taxonomy_overrides[ $taxonomy ] ) ) {
+					$jobvite_taxonomy_slug = $career_data[ $taxonomy ]['slug'];
+					if( $this->taxonomy_overrides[ $taxonomy ][ $jobvite_taxonomy_slug ] > 0) {
+						//There is an override in place
+						$taxonomy_id = array( $this->taxonomy_overrides[ $taxonomy ][ $jobvite_taxonomy_slug ] );
+					}
+				}	
 				$taxonomy_id = array_map( 'intval', $taxonomy_id );
 				$taxonomy_id = array_unique( $taxonomy_id );
 				wp_set_object_terms( $wp_id, $taxonomy_id, $taxonomy );
@@ -316,10 +337,18 @@ class Jobvite_Career_Sync {
 			// Update Career
 			wp_update_post( $updated_career );
 			foreach( $taxonomy_ids as $taxonomy => $taxonomy_id ) {
+				$jobvite_taxonomy_slug = '';
+				if( ! empty( $this->taxonomy_overrides[ $taxonomy ] ) && array_key_exists( $career_data[ $taxonomy ]['slug'], $this->taxonomy_overrides[ $taxonomy ] ) ) {
+					$jobvite_taxonomy_slug = $career_data[ $taxonomy ]['slug'];
+					if( $this->taxonomy_overrides[ $taxonomy ][ $jobvite_taxonomy_slug ] > 0) {
+						//There is an override in place
+						$taxonomy_id = array( $this->taxonomy_overrides[ $taxonomy ][ $jobvite_taxonomy_slug ] );
+					}
+				}	
 				$taxonomy_id = array_map( 'intval', $taxonomy_id );
 				$taxonomy_id = array_unique( $taxonomy_id );
 				//true here means categories will be appended, not replaced.
-				wp_set_object_terms( $post_id, $taxonomy_id, $taxonomy, true );
+				wp_set_object_terms( $wp_id, $taxonomy_id, $taxonomy, true );
 			}
 			// Jobvite ID is constant so is not updated
 			update_post_meta( $wp_id, 'apply_now_link', $career_data['apply-url'] );
@@ -357,14 +386,17 @@ class Jobvite_Career_Sync {
 				    'slug' => $career_data[ $taxonomy ]['slug']
 				  )
 				);
+				$new_id = $insert['term_id'];
 				// Adds custom fields to taxonomies.
 				$term_meta = array();
 				$term_meta['jobvite_slug'] = $career_data[ $taxonomy ]['slug'];
 				$term_meta['jobvite_title'] = $career_data[ $taxonomy ]['title'];
-				update_option( "taxonomy_".$insert['term_id'], $term_meta );
+				update_option( "taxonomy_".$new_id, $term_meta );
 				// Adds to taxonomy class property to prevent duplicates
 				$this->new_taxonomies[] = $career_data[ $taxonomy ]['slug'];
-				$taxonomy_ids[ $taxonomy ][] = $insert['term_id'];
+				$this->jobvite_term_meta[ $taxonomy ]['jobvite_slug'][ $new_id ] = $career_data[ $taxonomy ]['slug'];
+				$this->jobvite_term_meta[ $taxonomy ]['wp_slug'][ $new_id ] = $career_data[ $taxonomy ]['slug'];
+				$taxonomy_ids[ $taxonomy ][] = $new_id;
 			} else {
 				// Existing Taxonomy
 				$taxonomy_ids[ $taxonomy ][] = $term_status;
@@ -383,10 +415,10 @@ class Jobvite_Career_Sync {
 	 */
 	protected function taxonomy_status ( $jobvite_taxonomy = array(), $wp_taxonomy = '' ) {
 		$term_check = array_search( $jobvite_taxonomy['slug'], $this->jobvite_term_meta[ $wp_taxonomy ]['jobvite_slug'] );
-		if( ! is_numeric( $term_check ) ) {
+		if( false === $term_check ) {
 			//Not Created Yet by Jobvite
 			$term_check = array_search( $jobvite_taxonomy['slug'], $this->jobvite_term_meta[ $wp_taxonomy ]['wp_slug'] );
-			if( ! is_numeric( $term_check ) ) {
+			if( false === $term_check ) {
 				return 'new';
 			} else {
 				//Existed in WP before added by Jobvite. Update Jobvite meta in WP to match.

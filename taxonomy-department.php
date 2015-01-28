@@ -141,7 +141,7 @@
 				    'taxonomy' => 'department',
 					'having_images' => false,
 				    'term_args' => array(
-						'hide_empty' => 0, ## change to 0 to show empty categories 
+						'hide_empty' => 1, ## change to 0 to show empty categories 
 						),
 				    ) );
 					if ( ! empty( $terms ) ) {

@@ -100,18 +100,14 @@
 		</div>
 		<div class="secondary-col">
 			<div class="sidebar-module">
-				<h2>departments</h2>
-				<?php $terms = apply_filters( 'taxonomy-images-get-terms', '', array(
-				    'taxonomy' => 'department',
-					'having_images' => false,
-				    'term_args' => array(
-						'hide_empty' => 0, ## change to 0 to show empty categories 
-						),
-				    ) );
+				<h2>locations</h2>
+				<?php $terms = get_terms( 'location', array( 'hide_empty' => false ) );
 					if ( ! empty( $terms ) ) {
 				    	print '<ul class="link-list">';
 				    	foreach( (array) $terms as $term ) {
-				        	print '<li><a href="' . esc_url( get_term_link( $term, $term->taxonomy ) ) . '">' . esc_html( $term->name ) . '</a></li>';
+							if( $term->count > 0 ) {
+					        	print '<li><a href="' . esc_url( get_term_link( $term, $term->taxonomy ) ) . '">' . esc_html( $term->name ) . '</a></li>';
+							}
 				    	}
 				    	print '</ul>';
 					}

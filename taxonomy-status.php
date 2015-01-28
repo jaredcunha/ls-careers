@@ -141,7 +141,9 @@
 					if ( ! empty( $terms ) ) {
 				    	print '<ul class="link-list">';
 				    	foreach( (array) $terms as $term ) {
-				        	print '<li><a href="' . esc_url( get_term_link( $term, $term->taxonomy ) ) . '">' . esc_html( $term->name ) . '</a></li>';
+							if( $term->count > 0 ) {
+					        	print '<li><a href="' . esc_url( get_term_link( $term, $term->taxonomy ) ) . '">' . esc_html( $term->name ) . '</a></li>';
+							}
 				    	}
 				    	print '</ul>';
 					}
