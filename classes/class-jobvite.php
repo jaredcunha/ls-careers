@@ -39,9 +39,17 @@ class Jobvite_Career_Sync {
 	protected $taxonomy_overrides = array();
 	
 	/**
+	 * @var boolean $debug If true will output process information to the browser.
+	 */	
+	protected $debug = false;
+	
+	/**
 	 * Begins the collection and parsing of Jobvite data.
 	 */
 	function __construct ( ) {
+		if( isset( $_REQUEST['debug'] ) && $_REQUEST['debug'] == 1 ) {
+			$this->debug = true;
+		}
 		if( ! extension_loaded( 'simplexml' ) ) {
 			exit();
 		} else {
@@ -155,13 +163,18 @@ class Jobvite_Career_Sync {
 		}
 		// Archive careers no longer provided by Jobvite (assumed not currently available)
 		if( ! empty( $current_jobvite_ids ) ) {
+			if( $this->debug ) {
+				echo "Jobvite IDs detected in this XML feed:<br />";
+				print_r( $current_jobvite_ids );
+				echo "<br /><br />";
+			}
 			$this->archive_inactive_careers( $current_jobvite_ids );
 		}
 	}
 	
 	/**
 	 * Changes career posts in WordPress that are no longer listed on Jobvite to 'Removed from Jobvite' status,
-	 * and hides them from frontend display.
+	 * and hides them from public display.
 	 *
 	 * @param array $current_jobvite_ids Jobvite IDs received in the current XML feed.
 	 */
@@ -176,18 +189,22 @@ class Jobvite_Career_Sync {
 		  'post_type'      => 'career',
 		  'posts_per_page' => -1
 		);
+		$jobvite_id = '';
 		$query = new WP_Query( $args );
 		if( $query->have_posts() ) {
 			while( $query->have_posts() ) {
 				$query->the_post();
-				// Create post object
+				// Double check for existence of Jobvite ID
 				$wp_id = get_the_ID();
-				$archived_career = array(
-				  'ID'			  => $wp_id,
-				  'post_status'	  => 'removed_from_jobvite'
-				);
-				// Insert the post into the database
-				wp_update_post( $archived_career );
+				$jobvite_id = get_post_meta( $wp_id, 'jobvite_id', true );
+				if( ! in_array( $jobvite_id, $current_jobvite_ids ) ) {
+					$archived_career = array(
+					  'ID'			  => $wp_id,
+					  'post_status'	  => 'removed_from_jobvite'
+					);
+					// Update the status of the post
+					wp_update_post( $archived_career );					
+				}
 			}
 		}	
 	}
