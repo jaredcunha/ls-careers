@@ -27,4 +27,9 @@ Next, run the normal gulp task and save any CSS file.
 $ gulp
 ```
 
-I'll make this a little more streamlined
+## Packaging for WP Engine
+go one directory back in `themes` with `$ cd ../`
+
+zip the theme, but exclude the `node_modules` directory to avoid file size limits. 
+
+`$ zip -r lscareers.zip ls-careers -x ls-careers/node_modules/\*`

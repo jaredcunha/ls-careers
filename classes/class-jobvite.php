@@ -15,7 +15,6 @@
  * @package LivingSocial_Careers
  */
 //  Example: */15 * * * * /path/to/wp-content/themes/ls-careers/cron/cron-jobvite.php
-
 class Jobvite_Career_Sync {
 	
 	/**
@@ -108,6 +107,10 @@ class Jobvite_Career_Sync {
 		$wp_terms['location']['jobvite_slug'] = array();
 		$wp_terms['department']['jobvite_slug'] = array();
 		$wp_terms['status']['jobvite_slug'] = array();
+		//Same for wp_slug
+		$wp_terms['location']['wp_slug'] = array();
+		$wp_terms['department']['wp_slug'] = array();
+		$wp_terms['status']['wp_slug'] = array();
 		foreach ( $terms as $term ) {
 			$term_custom = get_option( "taxonomy_$term->term_id" );
 			if( isset( $term_custom['jobvite_slug'] ) ) {
