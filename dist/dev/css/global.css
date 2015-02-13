@@ -491,7 +491,8 @@ THE VARIABLES
   background-size: cover; }
 
 .hdr-main--extended {
-  background: #d9d9d9; }
+  background: #d9d9d9 url(https://dl6rt3mwcjzxg.cloudfront.net/assets/pages/careers/testimonial4.2x-4236acce385c1d6c83a6c2430f39412b.jpg);
+  background-size: cover; }
 
 /* 
 =============================================================================
@@ -505,6 +506,16 @@ Top Bar
     display: table; }
   .top-bar:after {
     clear: both; }
+  .hdr-main--extended .top-bar {
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(100%, rgba(0, 0, 0, 0)));
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0; }
 
 .logo-main {
   text-align: center; }
@@ -533,29 +544,43 @@ Top Bar
     display: inline; }
     .nav-main li a {
       color: #fff;
-      padding: 1em; }
+      padding: 1em;
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.75); }
 
 /* 
 =============================================================================
 Hero
 ========================================================================== */
 .hero {
-  padding: 14em 0;
   text-align: center;
-  color: #fff; }
+  color: #fff;
+  height: 100%;
+  display: table;
+  vertical-align: middle; }
+  .hero .wrap {
+    display: table-cell;
+    vertical-align: middle; }
   .hero .site-title {
-    font-size: 40px;
-    font-size: 4rem;
+    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: normal;
     color: #fff;
     text-shadow: 0 0 100px rgba(0, 0, 0, 0.8); }
+    @media only screen and (min-width: 640px) {
+      .hero .site-title {
+        font-size: 40px;
+        font-size: 4rem; } }
   .hero .site-description {
-    font-size: 22px;
-    font-size: 2.2rem;
+    font-size: 16px;
+    font-size: 1.6rem;
     max-width: 65.95745%;
     margin: 0 auto;
     padding: 0;
     text-shadow: 0 0 50px rgba(0, 0, 0, 0.8); }
+    @media only screen and (min-width: 640px) {
+      .hero .site-description {
+        font-size: 22px;
+        font-size: 2.2rem; } }
 
 /* 
 =============================================================================
@@ -574,7 +599,11 @@ Job Search
   font-size: 16px;
   font-size: 1.6rem;
   text-align: center;
-  padding: 1em 0; }
+  padding: 1em 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
   .jobs-search select {
     background: transparent;
     padding: 0.5em 1em;

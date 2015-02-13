@@ -8,7 +8,8 @@
 }
 
 .hdr-main--extended {
-	background: $silvertone;
+	background: $silvertone url(https://dl6rt3mwcjzxg.cloudfront.net/assets/pages/careers/testimonial4.2x-4236acce385c1d6c83a6c2430f39412b.jpg); 
+	background-size: cover;
 }
 
 /* 
@@ -18,6 +19,14 @@ Top Bar
 .top-bar {
 	@include clearfix;
 	padding: 20px 0;
+	.hdr-main--extended & {
+		@include linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0));
+		background-color: transparent;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
 }
 
 .logo-main {
@@ -51,6 +60,7 @@ Top Bar
 		a {
 			color: #fff;
 			padding: 1em;
+			text-shadow: 0 0 2px rgba(0,0,0,.75);
 		}
 	}
 	
@@ -60,21 +70,33 @@ Top Bar
 Hero
 ========================================================================== */
 .hero {
-	padding: 14em 0;
 	text-align: center;
 	color: #fff;
+	height: 100%;
+	display: table;
+	vertical-align: middle;
+	.wrap {
+		display: table-cell;
+		vertical-align: middle;
+	}
 	.site-title {
-		@include rem_units(font-size, 4);
+		@include rem_units(font-size, 2.4);
 		font-weight: normal;
 		color: #fff;
 		text-shadow: 0 0 100px rgba(0,0,0,.8);
+		@include respond-to (expansionA) {
+			@include rem_units(font-size, 4);
+		}
 	}
 	.site-description {
-		@include rem_units(font-size, 2.2);
+		@include rem_units(font-size, 1.6);
 		max-width: $grid_8of12cols;
 		margin: 0 auto;
 		padding: 0;
 		text-shadow: 0 0 50px rgba(0,0,0,.8);
+		@include respond-to (expansionA) {
+			@include rem_units(font-size, 2.2);
+		}
 	}
 }
 
@@ -95,6 +117,10 @@ Job Search
 	@include rem_units(font-size, 1.6);
 	text-align: center;
 	padding: 1em 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 	select {
 		background: transparent;
 		padding: .5em 1em;
