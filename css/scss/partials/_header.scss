@@ -74,6 +74,8 @@ Hero
 	color: #fff;
 	height: 100%;
 	display: table;
+	table-layout: fixed;
+	width: 100%;
 	vertical-align: middle;
 	.wrap {
 		display: table-cell;
