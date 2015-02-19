@@ -1388,23 +1388,22 @@ Job Listing Summary
     font-size: 1.2rem;
     color: #909090;
     padding: 0; }
-  .job-listing .additional-job-info {
-    position: absolute;
-    right: 0;
-    top: 1.5em;
-    text-align: right;
-    padding-right: 10px; }
-    @media only screen and (min-width: 800px) {
-      .job-listing .additional-job-info {
-        display: table-cell;
-        vertical-align: middle;
-        position: static; } }
+  @media only screen and (min-width: 800px) {
+    .job-listing .additional-job-info {
+      display: table-cell;
+      vertical-align: middle;
+      position: static;
+      text-align: right;
+      padding-right: 10px; } }
   .job-listing .listing-title {
     font-size: 18px;
     font-size: 1.8rem;
     color: #555555;
     font-weight: normal;
     padding: 0; }
+    @media only screen and (min-width: 800px) {
+      .job-listing .listing-title {
+        padding-right: 20px; } }
   .job-listing .listing-department {
     font-size: 14px;
     font-size: 1.4rem;

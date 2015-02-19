@@ -93,6 +93,7 @@
 				<div class="office-locations-list">
 					<h3>Office Locations</h3>
 					<?php location_list( 'location' ); ?>
+					<a href="/all-jobs/" class="btn">browse all jobs</a>
 				</div>
 			</div>
 		</section>

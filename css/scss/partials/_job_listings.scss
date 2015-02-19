@@ -54,15 +54,13 @@ Job Listing Summary
 		}
 	}
 	.additional-job-info {
-		position: absolute;
-		right: 0;
-		top: 1.5em;
-		text-align: right;
-		padding-right: 10px;
+		
 		@include respond-to(expansionB) {
 			display: table-cell;
 			vertical-align: middle;
 			position: static;
+			text-align: right;
+			padding-right: 10px;
 		}
 	}
 	.listing-title {
@@ -70,6 +68,9 @@ Job Listing Summary
 		color: $slate;
 		font-weight: normal;
 		padding: 0;
+		@include respond-to(expansionB) {
+			padding-right: 20px;
+		}
 	}
 	.listing-department {
 		@include rem_units(font-size, 1.4);
