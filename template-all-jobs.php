@@ -1,17 +1,13 @@
 <?php
 /**
- * The main template file
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file 
  *
- * Please see /external/starkers-utilities.php for info on Starkers_Utilities::get_template_parts()
+ * Template Name: All Jobs
  *
- * @package 	WordPress
- * @subpackage 	Starkers
- * @since 		Starkers 4.0
+ * @package WordPress
+ * @subpackage Twenty_Eleven
+ * @since Twenty Eleven 1.0
  */
+
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 <main role="main" class="module module__two-cols">
@@ -37,16 +33,7 @@
 								<a href="<?php esc_url( the_permalink() ); ?>" class="job-listing-link pad-horiz">
 									<div class="title-and-department">
 										<h3 class="listing-title"><?php echo the_title(); ?></h3>
-										<p class="listing-department">
-											<?php
-												$terms = get_the_terms($post->ID, 'department');
-												echo '';
-												foreach ($terms as $taxindex => $taxitem) {
-												echo $taxitem->name;
-												}
-												echo ''
-											?>
-										</p>
+										<p class="listing-department"><?php echo single_cat_title(); ?></p>
 									</div>
 									<div class="job-location">
 										<?php
@@ -57,25 +44,6 @@
 											}
 											echo ''
 										?>
-									</div>
-									<div class="additional-job-info">
-										<?php
-											$terms = get_the_terms($post->ID, 'status');
-											echo '';
-											foreach ($terms as $taxindex => $taxitem) {
-											echo '<p class="status status-'. $taxitem->slug .'">' . $taxitem->name . '</p>';
-											}
-											echo ''
-										?>
-										<?php
-										//display message if post is less than 46 days old
-										$mylimit=14 * 86400; //days * seconds per day
-										//$post_age = date('U') - get_post_time('U');
-										$post_age = date('U') - mysql2date('U', $post->post_date_gmt);
-										if ($post_age < $mylimit) {
-										echo '<p class="new">NEW</p>';
-										}
-									?>
 									</div>
 								</a>
 							</article>

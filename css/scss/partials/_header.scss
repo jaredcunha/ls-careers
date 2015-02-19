@@ -69,7 +69,7 @@ Top Bar
 =============================================================================
 Hero
 ========================================================================== */
-.hero {
+.hero-text {
 	text-align: center;
 	color: #fff;
 	height: 100%;
@@ -86,6 +86,7 @@ Hero
 		font-weight: normal;
 		color: #fff;
 		text-shadow: 0 0 100px rgba(0,0,0,.8);
+		text-transform: none;
 		@include respond-to (expansionA) {
 			@include rem_units(font-size, 4);
 		}
@@ -164,6 +165,9 @@ Job Search
 			position: absolute;
 			right: 16px;
 			top: 16px;
+		}
+		&:focus:after {
+			display: none;
 		}
 	}
 	button {

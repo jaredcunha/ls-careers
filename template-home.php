@@ -11,7 +11,7 @@
 ?>
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
-	<div class="hero">
+	<div class="hero-text">
 		<div class="wrap">
 			<h1 class="site-title"><?php the_block('Site Header',array('type' => 'one-liner','apply_filters' => false)) ?></h1>
 			<p class="site-description"><?php the_block('Site Descriptive Text',array('type' => 'one-liner','apply_filters' => false)) ?></p>
