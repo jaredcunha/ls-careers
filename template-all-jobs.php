@@ -33,7 +33,16 @@
 								<a href="<?php esc_url( the_permalink() ); ?>" class="job-listing-link pad-horiz">
 									<div class="title-and-department">
 										<h3 class="listing-title"><?php echo the_title(); ?></h3>
-										<p class="listing-department"><?php echo single_cat_title(); ?></p>
+										<p class="listing-department">
+											<?php
+												$terms = get_the_terms($post->ID, 'department');
+												echo '';
+												foreach ($terms as $taxindex => $taxitem) {
+												echo $taxitem->name;
+												}
+												echo ''
+											?>
+										</p>
 									</div>
 									<div class="job-location">
 										<?php
@@ -44,6 +53,25 @@
 											}
 											echo ''
 										?>
+									</div>
+									<div class="additional-job-info">
+										<?php
+											$terms = get_the_terms($post->ID, 'status');
+											echo '';
+											foreach ($terms as $taxindex => $taxitem) {
+											echo '<p class="status status-'. $taxitem->slug .'">' . $taxitem->name . '</p>';
+											}
+											echo ''
+										?>
+										<?php
+										//display message if post is less than 46 days old
+										$mylimit=14 * 86400; //days * seconds per day
+										//$post_age = date('U') - get_post_time('U');
+										$post_age = date('U') - mysql2date('U', $post->post_date_gmt);
+										if ($post_age < $mylimit) {
+										echo '<p class="new">NEW</p>';
+										}
+									?>
 									</div>
 								</a>
 							</article>
