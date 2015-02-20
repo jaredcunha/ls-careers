@@ -35,7 +35,9 @@
 					<h1><?php echo single_cat_title(); ?></h1>
 				<?php } ?>
 				<div class="supplement">
-					<p class="secondary"><?php echo $wp_query->found_posts;?> job openings</p>
+					<p class="secondary">
+						<?php printf( __( '%d %s' ), $wp_query->found_posts, _n( 'job opening', 'job openings', $wp_query->found_posts), get_search_query() ); ?>
+					</p>
 				</div>
 			</div>
 			

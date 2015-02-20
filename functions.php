@@ -117,8 +117,11 @@ function location_list( $taxonomy ) {
 	    $count = count($terms);
 	    $term_list = '<ul class="locations-list">';
 	    foreach ($terms as $term) {
-			if( $term->count > 0 ) {
-				$term_list .= '<li><a href="' . get_term_link( $term ) . '" >' . $term->name  .' <span class="count">(' . $term->count . ' job postings)</span></a></li>';
+			if( $term->count == 1 ) {
+				$term_list .= '<li><a href="' . get_term_link( $term ) . '" >' . $term->name  .' <span class="count">(' . $term->count . ' job opening)</span></a></li>';
+			}
+			if( $term->count > 1 ) {
+				$term_list .= '<li><a href="' . get_term_link( $term ) . '" >' . $term->name  .' <span class="count">(' . $term->count . ' job openings)</span></a></li>';
 			}
 	    }
 		$term_list .= '</ul>';
