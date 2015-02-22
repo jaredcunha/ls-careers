@@ -8,8 +8,7 @@
 }
 
 .hdr-main--extended {
-	background: $silvertone url(https://dl6rt3mwcjzxg.cloudfront.net/assets/pages/careers/testimonial4.2x-4236acce385c1d6c83a6c2430f39412b.jpg); 
-	background-size: cover;
+	background: $silvertone none;
 }
 
 /* 
@@ -26,6 +25,7 @@ Top Bar
 		width: 100%;
 		top: 0;
 		left: 0;
+		z-index: 15;
 	}
 }
 
@@ -67,25 +67,39 @@ Top Bar
 }
 /* 
 =============================================================================
+Ambient Video
+========================================================================== */
+.ambient-video {
+	width: 100%;
+	height: 450px;
+	z-index: 5;
+	@include respond-to(expansionA) {
+		height: 500px;
+	}
+	@include respond-to(expansionB) {
+		height: 550px;
+	}
+}
+/* 
+=============================================================================
 Hero
 ========================================================================== */
 .hero-text {
 	text-align: center;
 	color: #fff;
-	height: 100%;
-	display: table;
-	table-layout: fixed;
+	position: absolute;
 	width: 100%;
-	vertical-align: middle;
-	.wrap {
-		display: table-cell;
-		vertical-align: middle;
+	top: 160px;
+	bottom: 0;
+	z-index: 8;
+	@include respond-to(expansionA) {
+		top: 150px;
 	}
 	.site-title {
 		@include rem_units(font-size, 2.4);
 		font-weight: normal;
 		color: #fff;
-		text-shadow: 0 0 100px rgba(0,0,0,.8);
+		text-shadow: 0 0 100px rgba(0,0,0,1);
 		text-transform: none;
 		@include respond-to (expansionA) {
 			@include rem_units(font-size, 4);
@@ -96,11 +110,18 @@ Hero
 		max-width: $grid_8of12cols;
 		margin: 0 auto;
 		padding: 0;
-		text-shadow: 0 0 50px rgba(0,0,0,.8);
+		text-shadow: 0 0 50px rgba(0,0,0,1);
 		@include respond-to (expansionA) {
 			@include rem_units(font-size, 2.2);
 		}
 	}
+}
+
+.ls-video {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
 }
 
 /* 
@@ -124,6 +145,7 @@ Job Search
 	bottom: 0;
 	left: 0;
 	width: 100%;
+	z-index: 10;
 	select {
 		background: transparent;
 		padding: .5em 1em;
@@ -142,14 +164,19 @@ Job Search
 		width: 75%;
 		float: left;
 		overflow-x: hidden;
-		margin: 0 0 10px;
 		border-radius: 20px;
 		background: #fff;
 		box-shadow: 0 0 0 2px rgba(255,255,255,.5);
+		&:first-child {
+			margin: 0 0 10px;
+		}
 		@include respond-to(expansionA__minor) {
 			margin: 0 9px;
 			width: 170px;
 			box-shadow: 0 0 0 4px rgba(255,255,255,.5);
+			&:first-child {
+				margin-right: 9px;
+			}
 		}
 		@include respond-to(expansionA) {
 			width: 232px;

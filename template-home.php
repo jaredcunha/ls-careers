@@ -11,6 +11,7 @@
 ?>
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
+	<div id="ambientVideo" class="ambient-video"></div>
 	<div class="hero-text">
 		<div class="wrap">
 			<h1 class="site-title"><?php the_block('Site Header',array('type' => 'one-liner','apply_filters' => false)) ?></h1>
@@ -24,6 +25,7 @@
 		   	<button type="submit"><span class="text">go</span><span class="icon search"></span></button>
 	   	</div>
 	</form>
+ 	
 </header>
 
 

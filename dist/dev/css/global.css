@@ -491,8 +491,7 @@ THE VARIABLES
   background-size: cover; }
 
 .hdr-main--extended {
-  background: #d9d9d9 url(https://dl6rt3mwcjzxg.cloudfront.net/assets/pages/careers/testimonial4.2x-4236acce385c1d6c83a6c2430f39412b.jpg);
-  background-size: cover; }
+  background: #d9d9d9 none; }
 
 /* 
 =============================================================================
@@ -515,7 +514,8 @@ Top Bar
     position: absolute;
     width: 100%;
     top: 0;
-    left: 0; }
+    left: 0;
+    z-index: 15; }
 
 .logo-main {
   text-align: center; }
@@ -549,25 +549,40 @@ Top Bar
 
 /* 
 =============================================================================
+Ambient Video
+========================================================================== */
+.ambient-video {
+  width: 100%;
+  height: 450px;
+  z-index: 5; }
+  @media only screen and (min-width: 640px) {
+    .ambient-video {
+      height: 500px; } }
+  @media only screen and (min-width: 800px) {
+    .ambient-video {
+      height: 550px; } }
+
+/* 
+=============================================================================
 Hero
 ========================================================================== */
 .hero-text {
   text-align: center;
   color: #fff;
-  height: 100%;
-  display: table;
-  table-layout: fixed;
+  position: absolute;
   width: 100%;
-  vertical-align: middle; }
-  .hero-text .wrap {
-    display: table-cell;
-    vertical-align: middle; }
+  top: 160px;
+  bottom: 0;
+  z-index: 8; }
+  @media only screen and (min-width: 640px) {
+    .hero-text {
+      top: 150px; } }
   .hero-text .site-title {
     font-size: 24px;
     font-size: 2.4rem;
     font-weight: normal;
     color: #fff;
-    text-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 100px black;
     text-transform: none; }
     @media only screen and (min-width: 640px) {
       .hero-text .site-title {
@@ -579,11 +594,17 @@ Hero
     max-width: 65.95745%;
     margin: 0 auto;
     padding: 0;
-    text-shadow: 0 0 50px rgba(0, 0, 0, 0.8); }
+    text-shadow: 0 0 50px black; }
     @media only screen and (min-width: 640px) {
       .hero-text .site-description {
         font-size: 22px;
         font-size: 2.2rem; } }
+
+.ls-video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%; }
 
 /* 
 =============================================================================
@@ -606,7 +627,8 @@ Job Search
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 10; }
   .jobs-search select {
     background: transparent;
     padding: 0.5em 1em;
@@ -627,15 +649,18 @@ Job Search
     width: 75%;
     float: left;
     overflow-x: hidden;
-    margin: 0 0 10px;
     border-radius: 20px;
     background: #fff;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); }
+    .jobs-search .select-wrap:first-child {
+      margin: 0 0 10px; }
     @media only screen and (min-width: 500px) {
       .jobs-search .select-wrap {
         margin: 0 9px;
         width: 170px;
-        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5); } }
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5); }
+        .jobs-search .select-wrap:first-child {
+          margin-right: 9px; } }
     @media only screen and (min-width: 640px) {
       .jobs-search .select-wrap {
         width: 232px; } }
