@@ -94,7 +94,7 @@ Department/Location List for Search
 
 ======================================================================================================================== */
 function custom_taxonomy_dropdown( $taxonomy ) {
-	$terms = get_terms( $taxonomy, array( 'hide_empty' => 0 ) );
+	$terms = get_terms( $taxonomy, array( 'hide_empty' => 1 ) );
 	if ( $terms ) {
 		printf( '<select name="%s" class="postform">', esc_attr( $taxonomy ) );
 		printf( '<option value="">all '.$taxonomy.'s </option>');
