@@ -23,6 +23,12 @@
 				<p><?php echo do_shortcode('[contentblock id=footertext]');?></p>
 			</div>
 			<p class="copyright">&copy; <?php echo date("Y"); ?>, LivingSocial, Inc. or its affiliated companies. All rights reserved. <a href="https://www.livingsocial.com/terms">Terms of Use</a>. <a href="https://www.livingsocial.com/privacy_policy">Privacy Policy</a>.</p>
+			<ul class="social-links">
+				<li><a href="https://www.linkedin.com/company/livingsocial/careers" class="ls-i ls-i-replace ls-i-linkedin">Linked In</a></li>
+				<li><a href="https://www.facebook.com/LivingSocialCareers" class="ls-i ls-i-replace ls-i-facebook">facebook</a></li>
+				<li><a href="https://twitter.com/livingsocialjob" class="ls-i ls-i-replace ls-i-twitter">twitter</a></li>
+				<li><a href="https://www.pinterest.com/livingsocialjob/" class="ls-i ls-i-replace ls-i-pinterest">pinterest</a></li>
+			</ul>
 		</div>
 		
 	</footer>

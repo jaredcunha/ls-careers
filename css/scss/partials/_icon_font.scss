@@ -1,0 +1,49 @@
+@import "bourbon/bourbon";
+@import "modules/all";
+
+.ls-i-content{
+  font-family: $icons;
+  margin-right: 10px;
+  speak: none;
+}
+
+/*Initial*/
+.ls-i:before {
+  font-family: $icons;
+  margin-right: 10px;
+  speak: none;
+}
+
+/*Replace text completely*/
+.ls-i-replace {
+  text-indent: -999em;
+  display: inline-block;
+  position: relative;
+  min-width: 1em;
+  max-width: 1em;
+}
+
+.ls-i-replace:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-indent: 0;
+  margin-right: 0;
+}
+
+/*Characters*/
+.ls-i-twitter:before {
+  content: "a";
+}
+
+.ls-i-linkedin:before {
+  content: "b";
+}
+
+.ls-i-pinterest:before {
+  content: "c";
+}
+
+.ls-i-facebook:before {
+  content: "d";
+}

@@ -2,6 +2,7 @@
 /* Bring in the partials */
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -307,6 +308,7 @@ table {
 /*Remove most spacing between table cells.*/
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -347,6 +349,13 @@ a {
   font-style: normal;
   src: url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.eot');
   src: url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.eot?#iefix') format('embedded-opentype'), url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.woff') format('woff'), url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.ttf') format('truetype'), url('/wp-content/themes/ls-careers/fonts/ProximaNovaSoft-Bold-webfont.svg#ProximaNovaSoft') format('svg'); }
+
+@font-face {
+  font-family: IconFont;
+  font-weight: normal;
+  font-style: normal;
+  src: url('/wp-content/themes/ls-careers/fonts/icons-webfont.eot');
+  src: url('/wp-content/themes/ls-careers/fonts/icons-webfont.eot?#iefix') format('embedded-opentype'), url('/wp-content/themes/ls-careers/fonts/icons-webfont.woff') format('woff'), url('/wp-content/themes/ls-careers/fonts/icons-webfont.ttf') format('truetype'), url('/wp-content/themes/ls-careers/fonts/icons-webfont.svg#IconFont') format('svg'); }
 
 /* 
 =============================================================================
@@ -472,6 +481,62 @@ Reusable Items
 
 /* The greys */
 /* Borders */
+/* Social Media */
+/* ==========================================================================
+   VARS
+   ========================================================================== */
+/* Caculate the end grid details */
+/* Caculate the gutter */
+/* Calculate the column widths (12 columns) */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* 
+=============================================================================
+THE VARIABLES
+========================================================================== */
+.ls-i-content {
+  font-family: IconFont;
+  margin-right: 10px;
+  speak: none; }
+
+/*Initial*/
+.ls-i:before {
+  font-family: IconFont;
+  margin-right: 10px;
+  speak: none; }
+
+/*Replace text completely*/
+.ls-i-replace {
+  text-indent: -999em;
+  display: inline-block;
+  position: relative;
+  min-width: 1em;
+  max-width: 1em; }
+
+.ls-i-replace:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-indent: 0;
+  margin-right: 0; }
+
+/*Characters*/
+.ls-i-twitter:before {
+  content: "a"; }
+
+.ls-i-linkedin:before {
+  content: "b"; }
+
+.ls-i-pinterest:before {
+  content: "c"; }
+
+.ls-i-facebook:before {
+  content: "d"; }
+
+/* The greys */
+/* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -713,6 +778,7 @@ Job Search
 
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -758,6 +824,9 @@ Main Footer Container
       text-decoration: underline; }
       .site-footer .copyright a:hover {
         text-decoration: none; }
+    @media only screen and (min-width: 800px) {
+      .site-footer .copyright {
+        float: left; } }
 
 /* 
 =============================================================================
@@ -809,8 +878,42 @@ Site Summary
         font-size: 18px;
         font-size: 1.8rem; } }
 
+/* 
+=============================================================================
+SOCIAL LINKS
+========================================================================== */
+.social-links {
+  text-align: center;
+  padding: 20px 0 0; }
+  @media only screen and (min-width: 800px) {
+    .social-links {
+      float: right;
+      padding: 0; } }
+  .social-links li {
+    display: inline-block;
+    min-width: 30px;
+    margin: 0 2px; }
+  .social-links a {
+    display: block;
+    border-radius: 50%;
+    padding: 0.5em;
+    color: #fff;
+    min-width: 30px; }
+  .social-links .ls-i:before {
+    padding: 0.5em;
+    border-radius: 50%; }
+  .social-links .ls-i-facebook:before {
+    background: #3b5998; }
+  .social-links .ls-i-twitter:before {
+    background: #55acee; }
+  .social-links .ls-i-pinterest:before {
+    background: #cc2127; }
+  .social-links .ls-i-linkedin:before {
+    background: #0976b4; }
+
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -939,6 +1042,7 @@ Sidebar Module
 
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -1073,6 +1177,7 @@ THE VARIABLES
 
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -1143,6 +1248,7 @@ Values List
 
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -1229,6 +1335,7 @@ IMAGES
 
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -1350,6 +1457,7 @@ PERKS QUICK LIST
 
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -1446,6 +1554,7 @@ Job Listing Summary
 
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -1573,6 +1682,7 @@ OVERRIDES FOR THE ERROR PAGE
 /* For Shame */
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -1608,6 +1718,7 @@ THE VARIABLES
 /*Keyframes are last */
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */
@@ -1624,6 +1735,7 @@ THE VARIABLES
 /* And then there's print styles */
 /* The greys */
 /* Borders */
+/* Social Media */
 /* ==========================================================================
    VARS
    ========================================================================== */

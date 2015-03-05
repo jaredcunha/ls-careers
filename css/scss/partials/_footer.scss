@@ -34,6 +34,9 @@ Main Footer Container
 				text-decoration: none;
 			}
 		}
+		@include respond-to(expansionB) {
+			float: left;
+		}
 	}	
 }
 
@@ -84,5 +87,46 @@ Site Summary
 		@include respond-to(expansionA) {
 			@include rem_units(font-size, 1.8);
 		}
+	}
+}
+
+/* 
+=============================================================================
+SOCIAL LINKS
+========================================================================== */
+.social-links {
+	text-align: center;
+	padding: 20px 0 0;
+	@include respond-to(expansionB) {
+		float: right;
+		padding: 0;
+	}
+	li {
+		display: inline-block;
+		min-width: 30px;
+		margin: 0 2px;
+	}
+	a {
+		display: block;
+		border-radius: 50%;
+		padding: .5em;
+		color: #fff;
+		min-width: 30px;
+	}
+	.ls-i:before {
+		padding: .5em;
+		border-radius: 50%;
+	}
+	.ls-i-facebook:before {
+		background: $facebook_blue;
+	}
+	.ls-i-twitter:before {
+		background: $twitter_blue;
+	}
+	.ls-i-pinterest:before {
+		background: $pinterest_red;
+	}
+	.ls-i-linkedin:before {
+		background: $linkedin_blue;
 	}
 }
