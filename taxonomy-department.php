@@ -136,7 +136,7 @@
 		</div>
 		<div class="secondary-col">
 			<div class="sidebar-module">
-				<h2>departments</h2>
+				<h2>openings</h2>
 				<?php $terms = apply_filters( 'taxonomy-images-get-terms', '', array(
 				    'taxonomy' => 'department',
 					'having_images' => false,

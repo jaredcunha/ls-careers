@@ -27,7 +27,6 @@
 				<li><a href="https://www.linkedin.com/company/livingsocial/careers" class="ls-i ls-i-replace ls-i-linkedin">Linked In</a></li>
 				<li><a href="https://www.facebook.com/LivingSocialCareers" class="ls-i ls-i-replace ls-i-facebook">facebook</a></li>
 				<li><a href="https://twitter.com/livingsocialjob" class="ls-i ls-i-replace ls-i-twitter">twitter</a></li>
-				<li><a href="https://www.pinterest.com/livingsocialjob/" class="ls-i ls-i-replace ls-i-pinterest">pinterest</a></li>
 			</ul>
 		</div>
 		
