@@ -31,7 +31,7 @@ Top Bar
 
 .logo-main {
 	text-align: center;
-	@include respond-to(expansionA) {
+	@include respond-to(expansionB) {
 		float: left;
 	}
 	a {
@@ -47,7 +47,7 @@ Top Bar
 
 .nav-main {
 	padding-top: 0px;
-	@include respond-to(expansionA) {
+	@include respond-to(expansionB) {
 		float: right;
 		padding-top: 32px;
 	}
@@ -71,7 +71,13 @@ Top Bar
 			}
 			a:after {
 				font-family: $icons;
-				content: " e";
+				content: "e";
+				opacity: .4;
+				display: inline-block;
+				padding-left: .25em;
+			}
+			a:hover:after {
+				text-decoration: none;
 			}
 		}
 	}
@@ -111,7 +117,7 @@ Hero
 		@include rem_units(font-size, 2.4);
 		font-weight: normal;
 		color: #fff;
-		text-shadow: 0 0 100px rgba(0,0,0,1);
+		text-shadow: 0 0 100px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,.5), 0 1px 0 rgba(0,0,0,.25);
 		text-transform: none;
 		@include respond-to (expansionA) {
 			@include rem_units(font-size, 4);
@@ -122,7 +128,7 @@ Hero
 		max-width: $grid_8of12cols;
 		margin: 0 auto;
 		padding: 0;
-		text-shadow: 0 0 50px rgba(0,0,0,1);
+		text-shadow: 0 0 50px rgba(0,0,0,1), 0 0 5px rgba(0,0,0,.5), 0 1px 0 rgba(0,0,0,.4);
 		@include respond-to (expansionA) {
 			@include rem_units(font-size, 2.2);
 		}
