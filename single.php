@@ -41,14 +41,6 @@
 					</div>
 				</div>
 				<div class="post-content pad-horiz">
-					<?php
-						$terms = wp_get_post_terms( $post->ID, 'department');
-						foreach ($terms as $term){
-						   $term_id = $term->term_id;
-						   $saved_data = get_tax_meta($term_id,'display_image',true);
-							echo '<img class="feature-image" src="'.$saved_data['src'].'">';
-						}
-					?>	
 					<?php the_content(); ?>			
 					<?php 
 					    $url = get_post_meta($post->ID, 'apply_now_link', true); 
