@@ -391,13 +391,15 @@ Reusable Items
   .caption-overlay figcaption {
     font-size: 12px;
     font-size: 1.2rem;
+    background: rgba(0, 0, 0, 0.35);
     display: block;
     position: absolute;
     bottom: 0;
     left: 0;
     padding: 1em 1.5em;
     color: #fff;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    width: 100%; }
 
 .new {
   font-size: 11px;
