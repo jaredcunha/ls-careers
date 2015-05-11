@@ -3,12 +3,12 @@
 }
 
 .icon:before {
-    content:"";
+    content:' ';
     vertical-align:middle;
     display: inline-block;
     background-image: url("../svg/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 9.4em 89.1em;
+    background-size: 9.4em 102.7em;
 }
 
 .no-svg .icon:before {
@@ -33,56 +33,68 @@
     height: 9.4em;
 }
 
-.perk-bike-racks:before {
+.perk-401k:before {
     background-position: 0em -28.2em;
+    width: 6.8em;
+    height: 6.8em;
+}
+
+.perk-bike-racks:before {
+    background-position: 0em -35em;
     width: 6.6em;
     height: 6.6em;
 }
 
 .perk-classes:before {
-    background-position: 0em -34.8em;
+    background-position: 0em -41.6em;
     width: 6.6em;
     height: 6.6em;
 }
 
 .perk-commute-reimbursement:before {
-    background-position: 0em -41.4em;
+    background-position: 0em -48.2em;
     width: 6.6em;
     height: 6.6em;
 }
 
 .perk-dress-code:before {
-    background-position: 0em -48em;
+    background-position: 0em -54.8em;
     width: 6.6em;
     height: 6.6em;
 }
 
 .perk-gym-memberships:before {
-    background-position: 0em -54.6em;
+    background-position: 0em -61.4em;
     width: 6.6em;
     height: 6.6em;
 }
 
+.perk-health-plan:before {
+    background-position: 0em -68em;
+    width: 6.8em;
+    height: 6.8em;
+}
+
 .perk-snacks-and-drinks:before {
-    background-position: 0em -61.2em;
+    background-position: 0em -74.8em;
     width: 6.6em;
     height: 6.6em;
 }
 
 .recognize-others:before {
-    background-position: 0em -67.8em;
+    background-position: 0em -81.4em;
     width: 9.4em;
     height: 9.4em;
 }
 
 .search:before {
-    background-position: 0em -77.2em;
+    background-position: 0em -90.8em;
     width: 2.41em;
     height: 2.41em;
 }
 
 .surprise-and-delight:before {
-    background-position: 0em -79.7em;
+    background-position: 0em -93.3em;
     width: 9.4em;
     height: 9.4em;
 }
