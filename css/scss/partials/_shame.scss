@@ -31,3 +31,8 @@
 		}
 	}
 }
+
+/* Eliminate stupid wordpress behaviors */
+figure br {
+	display: none;
+}

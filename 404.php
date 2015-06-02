@@ -18,7 +18,7 @@
 		<img src="/wp-content/themes/ls-careers/images/blink.gif" alt="">
 		<h1><?php echo do_shortcode('[contentblock id=404heading]') ?></h1>
 		<p> <?php echo do_shortcode('[contentblock id=404text]') ?></p>
-		<a href="/" class="btn btn-inverse">view all jobs</a>
+		<a href="http://jobs.livingsocial.com/all-jobs/" class="btn btn-inverse">view all jobs</a>
 	</div>
 </main>
 

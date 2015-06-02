@@ -1,6 +1,6 @@
 $(function(){
 	var $vidContainer = $('#ambientVideo');
-	$vidContainer.vide("/wp-content/uploads/2015/05/ambientvideo.mp4", {
+	$vidContainer.vide("/wp-content/uploads/2015/06/ambientvideo.mp4", {
 		volume: 0,
 	    playbackRate: 1,
 	    muted: true,

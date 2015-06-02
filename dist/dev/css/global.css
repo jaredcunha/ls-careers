@@ -1415,7 +1415,7 @@ PERKS LIST DETAILED
   .perks-list-detailed h3 {
     font-size: 20px;
     font-size: 2rem;
-    color: #508395;
+    color: #555555;
     font-weight: normal;
     padding: 0; }
   .perks-list-detailed p {
@@ -1460,7 +1460,7 @@ PERKS QUICK LIST
     float: left;
     padding: 1em 0 1em 5px;
     border-bottom: 1px solid #dddddd;
-    color: #508395; }
+    color: #909090; }
     @media only screen and (min-width: 640px) {
       .perks-quick-list ul li:before {
         content: "• "; } }
@@ -1743,6 +1743,10 @@ THE VARIABLES
 .no-backgroundsize .jobs-search button .text {
   position: static; }
 .no-backgroundsize .jobs-search button .icon {
+  display: none; }
+
+/* Eliminate stupid wordpress behaviors */
+figure br {
   display: none; }
 
 /*Keyframes are last */
