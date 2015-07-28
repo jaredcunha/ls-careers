@@ -6,9 +6,15 @@ Welcome to the LivingSocial Careers Site. This is a wordpress theme.
 
 All tasks are run with [gulp](http://gulpjs.com). To run gulp, you'll also need to install [node](http://nodejs.org). 
 
-Install gulp globally
+Install gulp globally, then locally
 ```
-$ sudo npm install -g gulp
+$ npm install --global gulp
+$ npm install --save-dev gulp
+```
+
+Install the gulp plugins (you may need to use sudo)
+```
+$ npm install --save-dev gulp-sass gulp-minify-css gulp-uglify gulp-concat gulp-rename gulp-jshint gulp-clean gulp-svgmin gulp-imagemin gulp-svg-sprites gulp-filter gulp-size gulp-svg2png
 ```
 
 Gulp is already installed locally. To run, simply go to your project directory and type:

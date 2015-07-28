@@ -1,4 +1,4 @@
-// npm install gulp-sass gulp-minify-css gulp-uglify gulp-concat gulp-rename gulp-jshint gulp-clean gulp-svgmin gulp-imagemin gulp-size
+// npm install --save-dev gulp-sass gulp-minify-css gulp-uglify gulp-concat gulp-rename gulp-jshint gulp-clean gulp-svgmin gulp-imagemin gulp-svg-sprites gulp-filter gulp-size gulp-svg2png
 
     // Gulp
     var gulp = require('gulp'),
@@ -43,7 +43,6 @@
       gulp.src(['js/libs/*.js', 'js/plugins/*.js', 'js/scripts/*.js'])
         .pipe(concat('global.js'))
         .pipe(gulp.dest('dist/dev/js'))
-        .pipe(uglify('comments:false'))
         .pipe(gulp.dest('dist/prod/js'))
     });
 
