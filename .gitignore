@@ -36,3 +36,7 @@ Thumbs.db
 
 # Ignore sass-cache files. #
  *.sass-cache*
+
+ # Ignore node modules. #
+ node_modules
+ /node_modules/*/node-modules/ 
