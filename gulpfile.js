@@ -8,18 +8,21 @@
     minifycss = require('gulp-minify-css'),
 
     // JavaScript
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    rename = require("gulp-rename"),
-    jshint = require('gulp-jshint'),
-    clean = require('gulp-clean'),
+    uglify    = require('gulp-uglify'),
+    concat    = require('gulp-concat'),
+    rename    = require("gulp-rename"),
+    jshint    = require('gulp-jshint'),
+    clean     = require('gulp-clean'),
 
     // Images,
-    svgmin = require('gulp-svgmin'),
-    imagemin = require('gulp-imagemin'),
+    svgmin    = require('gulp-svgmin'),
+    imagemin  = require('gulp-imagemin'),
     svgSprite = require("gulp-svg-sprites"),
     filter    = require('gulp-filter'),
     svg2png   = require('gulp-svg2png'),
+
+    // Source Maps
+    maps      = require('gulp-sourcemaps'),
 
     // Stats and Things
     size = require('gulp-size');
@@ -27,6 +30,7 @@
     // compile all your Sass
     gulp.task('sass', function (){
         gulp.src(['css/scss/global.scss'])
+            .pipe(maps.init())
             .pipe(sass({
                 includePaths: require('node-bourbon').includePaths,
                 errLogToConsole: true,
@@ -35,6 +39,7 @@
             }))
             .pipe(gulp.dest('dist/dev/css'))
             .pipe(minifycss())
+            .pipe(maps.write('./'))
             .pipe(gulp.dest('dist/prod/css'));
     });
 
