@@ -136,8 +136,7 @@ class Jobvite_Career_Sync {
 		foreach($xml->job as $job){
 			/* Confirm all required fields exist */
 			if( empty($job->location) || 
-				trim( $job->location ) == '' || empty($job->region) ||
-				 trim( $job->region ) == '' || empty($job->jobtype) ||
+				trim( $job->location ) == '' ||  empty($job->jobtype) ||
 				  trim( $job->jobtype ) == '' || empty($job->category) ||
 				   trim( $job->category ) == '' 
 				   ) 
