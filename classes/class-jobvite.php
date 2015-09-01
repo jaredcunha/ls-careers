@@ -135,8 +135,13 @@ class Jobvite_Career_Sync {
 		$counter = 0;
 		foreach($xml->job as $job){
 			/* Confirm all required fields exist */
-			$job->location = false;
-			if( trim( $job->location ) == '' || trim( $job->region ) == '' || trim( $job->jobtype ) == '' || trim( $job->category ) == '' ) {
+			if( empty($job->location) || 
+				trim( $job->location ) == '' || empty($job->region) ||
+				 trim( $job->region ) == '' || empty($job->jobtype) ||
+				  trim( $job->jobtype ) == '' || empty($job->category) ||
+				   trim( $job->category ) == '' 
+				   ) 
+			{
 				continue;
 			}
 			/* Cast ID as string */
