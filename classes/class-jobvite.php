@@ -134,6 +134,15 @@ class Jobvite_Career_Sync {
 		/* Loop Jobs */
 		$counter = 0;
 		foreach($xml->job as $job){
+			/* Confirm all required fields exist */
+			if( empty($job->location) || 
+				trim( $job->location ) == '' ||  empty($job->jobtype) ||
+				  trim( $job->jobtype ) == '' || empty($job->category) ||
+				   trim( $job->category ) == '' 
+				   ) 
+			{
+				continue;
+			}
 			/* Cast ID as string */
 			$id = (string) $job->id;
 			/* Add ID to Jobvite ID Array */
